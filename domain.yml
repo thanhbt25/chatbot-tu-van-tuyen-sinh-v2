@@ -1,0 +1,189 @@
+version: "3.1"
+
+intents:
+  - greet
+  - say_goodbye
+  - ask_benchmark
+  - ask_major
+  - ask_admission_chance
+  - ask_predict_benchmark
+  - ask_detail_guess
+  - help
+  - thanks
+  - inform 
+  - chitchat
+  - ask_score_rank
+
+entities:
+  - school
+  - major
+  - score
+  - year
+  - subject_combination
+  - quota
+slots:
+  school:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: school
+  major:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: major
+  year:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: year
+  subject_combination:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: subject_combination
+  score:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: score
+  quota:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: quota
+
+actions:
+  - action_benchmark
+  - action_find_major
+  - action_model_details
+  - action_admission_probability
+  - action_predict_cutoff
+  - action_default_fallback 
+  - action_score_rank
+
+forms:
+  benchmark_form:
+    required_slots:
+      - school
+      - year
+      - major
+
+  major_form:
+    required_slots:
+      - school 
+
+  admission_chance_form:
+    required_slots:
+      - school
+      - score
+      - subject_combination
+      - major
+      - year
+
+  predict_benchmark_form:
+    required_slots:
+      - school
+      - subject_combination
+      - major
+
+  detail_guess_form:
+    required_slots:
+      - school
+      - major
+
+responses:
+  utter_please_rephrase:
+    - text: "Xin lỗi, mình chưa hiểu ý bạn. Bạn có thể nói lại rõ hơn được không?"
+    - text: "Mình chưa bắt kịp ý bạn, bạn thử diễn đạt lại nhé."
+    - text: "Bạn có thể hỏi theo cách khác giúp mình không?"
+    - text: "Mình hơi khó hiểu đoạn này, bạn nói lại giúp nhé."
+    - text: "Mình chưa rõ lắm, bạn có thể gõ lại câu hỏi được không?"
+    - text: "Ồ, mình chưa hiểu. Bạn có thể diễn đạt theo cách khác không?"
+    - text: "Xin lỗi, bạn có thể nói lại dễ hiểu hơn một chút không?"
+    - text: "Có vẻ mình bỏ lỡ ý bạn, bạn thử hỏi lại nha."
+    - text: "Bạn thử viết lại câu hỏi giúp mình nhé."
+    - text: "Mình không chắc đã hiểu đúng, bạn có thể nói lại không?"
+
+  utter_greet:
+    - text: "Chào bạn! Mình có thể giúp gì cho bạn hôm nay?"
+    - text: "Hello, mình đây. Mình có thể làm gì cho bạn?"
+    - text: "Chào bạn! Rất vui được gặp bạn."
+    - text: "Chào bạn! Mình có thể hỗ trợ gì cho bạn?"
+    - text: "Xin chào! Mình có thể giúp gì cho bạn?"
+    - text: "Chào bạn! Mình rất vui được giúp đỡ bạn."
+
+  utter_chitchat:
+    - text: "Vâng, chuyện đó thú vị thật. Nhưng mình quay lại với câu hỏi nhé."
+    - text: "Mình hiểu rồi. Giờ mình tiếp tục hỗ trợ bạn về tuyển sinh nhé."
+  
+  utter_say_goodbye:
+    - text: "Tạm biệt! Hẹn gặp lại bạn sau."
+    - text: "Chúc bạn một ngày tốt lành!"
+    - text: "Mong bạn sẽ đạt được nhiều thành công trong học tập!"
+    - text: "Hẹn gặp lại bạn! Chúc bạn mọi điều tốt đẹp."
+    - text: "Tạm biệt! Nếu cần gì cứ hỏi mình nhé!"
+    - text: "Chúc bạn một ngày tuyệt vời! Hẹn gặp lại."
+
+  utter_help:
+    - text: "Bạn cần giúp đỡ gì? Mình có thể hỗ trợ bạn."
+    - text: "Nếu bạn có câu hỏi nào, đừng ngần ngại hỏi mình nhé!"
+    - text: "Mình luôn sẵn sàng giúp đỡ bạn!"
+    - text: "Bạn có thể hỏi mình về điểm chuẩn, ngành học, hoặc bất cứ điều gì liên quan đến tuyển sinh."
+    - text: "Mình ở đây để giúp bạn. Hãy cho mình biết bạn cần gì!"
+    - text: "Bạn cứ thoải mái hỏi mình bất cứ điều gì bạn muốn biết!"
+
+  utter_thanks:
+    - text: "Không có gì! Mình rất vui được giúp bạn."
+    - text: "Bạn luôn được chào đón! Nếu cần gì cứ hỏi mình nhé!"
+    - text: "Rất vui được giúp đỡ bạn!"
+    - text: "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!"
+    - text: "Hy vọng bạn sẽ quay lại nếu cần thêm sự trợ giúp!"
+    - text: "Chúc bạn một ngày tốt lành!"
+
+  utter_ask_school:
+    - text: "Bạn quan tâm đến trường nào vậy?"
+    - text: "Trường mà bạn muốn xét tuyển/tra cứu là trường nào?"
+    - text: "Bạn có thể cho mình biết tên trường được không?"
+    - text: "Trường bạn đang muốn tìm thông tin là gì?"
+    - text: "Bạn định thi hoặc tra cứu ở trường nào?"
+
+  utter_ask_major:
+    - text: "Ngành học bạn quan tâm là ngành nào?"
+    - text: "Bạn có thể cho mình biết ngành bạn muốn xét tuyển không?"
+    - text: "Bạn muốn tra cứu thông tin về ngành nào?"
+    - text: "Ngành mà bạn muốn tìm hiểu là gì?"
+    - text: "Cho mình biết ngành bạn muốn thi nhé."
+
+  utter_ask_year:
+    - text: "Bạn muốn xem thông tin của năm nào?"
+    - text: "Năm bạn quan tâm là năm bao nhiêu?"
+    - text: "Bạn cần tra cứu dữ liệu của năm nào?"
+    - text: "Hãy cho mình biết năm mà bạn muốn xem thông tin nhé."
+    - text: "Bạn muốn mình lấy thông tin của năm nào?"
+
+  utter_ask_score:
+    - text: "Bạn được bao nhiêu điểm thi?"
+    - text: "Điểm thi của bạn là bao nhiêu?"
+    - text: "Bạn có thể cho mình biết điểm của bạn không?"
+    - text: "Bạn đạt được bao nhiêu điểm trong kỳ thi?"
+    - text: "Bạn muốn tính cơ hội đỗ với số điểm nào?"
+
+  utter_ask_subject_combination:
+    - text: "Bạn thi theo tổ hợp môn nào?"
+    - text: "Tổ hợp xét tuyển của bạn gồm những môn gì?"
+    - text: "Bạn định xét tuyển theo khối nào?"
+    - text: "Bạn có thể cho mình biết tổ hợp môn xét tuyển không?"
+    - text: "Bạn muốn xét tuyển bằng khối thi nào?"
+
+  utter_ask_major_or_school:
+    - text: "Bạn có thể cung cấp cho mình biết trường và ngành mà bạn muốn thi vào là gì được không?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

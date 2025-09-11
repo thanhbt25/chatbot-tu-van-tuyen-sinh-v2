@@ -1,0 +1,316 @@
+version: "3.1"
+nlu:
+  - lookup: school
+    examples: |
+      - đại học bách khoa hà nội
+      - đại học ngoại thương (phía bắc)
+      - đại học kinh tế quốc dân
+      - đại học thương mại
+      - học viện tài chính
+      - đại học công nghiệp hà nội
+      - đại học công nghệ - đại học quốc gia hà nội
+      - đại học ngoại ngữ - đại học quốc gia hà nội
+      - đại học y dược - đại học quốc gia hà nội
+      - đại học việt nhật - đại học quốc gia hà nội
+      - đại học kinh tế - đại học quốc gia hà nội
+      - đại học giáo dục - đại học quốc gia hà nội
+      - đại học khoa học tự nhiên - đại học quốc gia hà nội
+      - đại học khoa học xã hội và nhân văn - đại học quốc gia hà nội
+      - trường quản trị và kinh doanh - đh quốc gia hà nội
+      - khoa luật - đại học quốc gia hà nội
+      - trường quốc tế - đại học quốc gia hà nội
+      - đại học quốc tế - đại học quốc gia tp hcm
+      - đại học bách khoa - đại học quốc gia tp hcm
+      - đại học an giang - đại học quốc gia tp hcm
+      - đại học khoa học tự nhiên - đại học quốc gia tp hcm
+      - đại học kinh tế - luật
+      - đại học công nghệ thông tin - đại học quốc gia tp hcm
+      - khoa chính trị - hành chính - đại học quốc gia tp hcm
+      - khoa y - đại học quốc gia tp hcm
+      - đại học y hà nội
+      - học viện quân y - hệ quân sự
+      - học viện quân y - hệ dân sự
+      - đại học kỹ thuật y tế hải dương
+      - đại học y dược hải phòng
+      - đại học y dược thái bình
+      - đại học y khoa phạm ngọc thạch
+      - đại học y dược tp hcm
+      - đại học kinh tế tp hcm
+      - học viện cảnh sát nhân dân
+      - học viện ngân hàng
+      - đại học luật - đại học huế
+      - đại học hà nội
+      - đại học văn lang
+      - đại học cần thơ
+      - học viện nông nghiệp việt nam
+      - đại học thăng long
+      - đại học tôn đức thắng
+      - đại học sài gòn
+      - đại học sư phạm hà nội
+      - đại học giao thông vận tải ( cơ sở phía bắc )
+      - đại học mở hà nội
+      - đại học mở tp hcm
+      - đại học luật hà nội
+      - học viện báo chí và tuyên truyền
+      - đại học nông lâm tp hcm
+      - đại học nam cần thơ
+      - đại học văn hiến
+      - đại học ngân hàng tp hcm
+      - đại học nguyễn tất thành
+      - đại học hoa sen
+      - học viện ngoại giao
+      - đại học công đoàn
+      - học viện hành chính và quản trị công
+      - đại học an ninh nhân dân
+      - đại học bà rịa vũng tàu
+      - đại học bạc liêu
+      - đại học bách khoa - đại học đà nẵng
+      - đại học bình dương
+      - đại học buôn ma thuột
+      - đại học cảnh sát nhân dân
+      - đại học chu văn an
+      - đại học công nghệ thông tin và truyền thông việt - hàn
+      - đại học công nghệ miền đông
+      - đại học công nghiệp tp hcm
+      - đại học công nghệ thông tin và truyền thông - đại học thái nguyên
+      - đại học công nghiệp việt hung
+      - đại học công nghiệp dệt may hà nội
+      - đại học công nghệ và quản lý hữu nghị
+      - đại học công nghệ tp hcm
+      - đại học công nghệ vạn xuân
+      - đại học công nghiệp việt trì
+      - đại học công nghệ giao thông vận tải
+      - đại học công nghệ sài gòn
+      - đại học công nghệ đông á
+      - đại học công nghệ đồng nai
+      - đại học công nghiệp quảng ninh
+      - đại học công nghiệp thực phẩm tp hcm
+      - đại học công nghiệp vinh
+      - đại học cửu long
+      - đại học đà lạt
+      - đại học đại nam
+      - đại học dân lập phú xuân
+      - đại học dân lập duy tân
+      - đại học dầu khí việt nam
+      - đại học điện lực
+      - đại học điều dưỡng nam định
+      - đại học đông đô
+      - đại học đồng nai
+      - đại học đông á
+      - đại học đồng tháp
+      - đại học dược hà nội
+      - đại học fpt
+      - đại học gia định
+      - đại học giao thông vận tải ( cơ sở phía nam)
+      - đại học giao thông vận tải tp hcm
+      - đại học hà tĩnh
+      - đại học hạ long
+      - đại học hà hoa tiên
+      - đại học hải dương
+      - đại học hải phòng
+      - đại học hàng hải việt nam
+      - đại học hoa sen
+      - đại học hoa lư
+      - đại học hòa bình
+      - đại học hồng đức
+      - đại học hùng vương tp hcm
+      - đại học hùng vương
+      - đại học khánh hòa
+      - đại học khoa học và công nghệ hà nội
+      - đại học khoa học - đại học huế
+      - đại học khoa học xã hội và nhân văn - đại học quốc gia tp hcm
+      - đại học khoa học - đại học thái nguyên
+      - đại học kiểm sát hà nội
+      - đại học kiến trúc tại trung tâm đào tạo cơ sở đà lạt
+      - đại học kiến trúc tại trung tâm đào tạo cơ sở cần thơ
+      - đại học kiên giang
+      - đại học kiến trúc hà nội
+      - đại học kiến trúc tp hcm
+      - đại học kiến trúc đà nẵng
+      - đại học kinh bắc
+      - đại học kinh doanh và công nghệ hà nội
+      - đại học kinh tế - tài chính tp hcm
+      - đại học kinh tế kỹ thuật công nghiệp
+      - đại học kinh tế nghệ an
+      - đại học kinh tế kỹ thuật bình dương
+      - đại học kinh tế công nghiệp long an
+      - đại học kinh tế  & quản trị kinh doanh - đại học thái nguyên
+      - đại học kinh tế - đại học huế
+      - đại học kinh tế - đại học đà nẵng
+      - đại học kinh tế kỹ thuật công nghiệp hà nội
+      - đại học kinh tế kỹ thuật công nghiệp nam định
+      - đại học kỹ thuật y dược đà nẵng
+      - đại học kỹ thuật công nghệ cần thơ
+      - đại học kỹ thuật - hậu cần công an nhân dân ( phía bắc )
+      - đại học kỹ thuật - hậu cần công an nhân dân ( phía nam )
+      - đại học kỹ thuật công nghiệp - đại học thái nguyên
+      - đại học lạc hồng
+      - đại học lâm nghiệp (cơ sở 2)
+      - đại học lâm nghiệp (cơ sở 1)
+      - đại học lao động - xã hội (cơ sở hà nội)
+      - đại học lao động - xã hội (cơ sở phía nam)
+      - đại học lao động – xã hội ( cơ sở sơn tây )
+      - đại học luật tp hcm
+      - đại học lương thế vinh
+      - đại học mỏ - địa chất
+      - đại học mỹ thuật tp hcm
+      - đại học mỹ thuật công nghiệp á châu
+      - đại học mỹ thuật việt nam
+      - đại học mỹ thuật công nghiệp
+      - đại học nghệ thuật - đại học huế
+      - đại học ngoại ngữ - đại học đà nẵng
+      - đại học ngoại ngữ - tin học tp hcm
+      - đại học ngoại thương (phía nam)
+      - đại học ngoại ngữ - đại học huế
+      - đại học nguyễn huệ
+      - đại học nguyễn trãi
+      - đại học nha trang
+      - đại học nông lâm - đại học thái nguyên
+      - đại học nông lâm - đại học huế
+      - đại học nông lâm bắc giang
+      - đại học phạm văn đồng
+      - đại học sư phạm - đại học thái nguyên
+      - đại học phan thiết
+      - đại học phan châu trinh
+      - đại học phenikaa
+      - đại học phòng cháy chữa cháy ( phía bắc )
+      - đại học phòng cháy chữa cháy ( hệ dân sự phía bắc )
+      - đại học phòng cháy chữa cháy (hệ dân sự phía nam)
+      - đại học phòng cháy chữa cháy (phía nam)
+      - đại học phú yên
+      - đại học phương đông
+      - đại học quản lý và công nghệ hải phòng
+      - đại học quang trung
+      - đại học quảng bình
+      - đại học quảng nam
+      - đại học quốc tế hồng bàng
+      - đại học quốc tế bắc hà
+      - đại học quốc tế miền đông
+      - đại học quốc tế sài gòn
+      - đại học quy nhơn
+      - đại học sân khấu - điện ảnh tp hcm
+      - đại học sân khấu điện ảnh
+      - đại học sao đỏ
+      - đại học sư phạm - đại học đà nẵng
+      - đại học sư phạm kỹ thuật tp hcm
+      - đại học sư phạm kỹ thuật vinh
+      - đại học sư phạm thể dục thể thao hà nội
+      - đại học sư phạm - đại học huế
+      - đại học sư phạm nghệ thuật trung ương
+      - đại học sư phạm hà nội 2
+      - đại học sư phạm kỹ thuật nam định
+      - đại học sư phạm tp hcm
+      - đại học sư phạm kỹ thuật - đại học đà nẵng
+      - đại học sư phạm thể dục thể thao tp hcm
+      - đại học sư phạm kỹ thuật vĩnh long
+      - đại học sư phạm kỹ thuật hưng yên
+      - đại học tài chính ngân hàng hà nội
+      - đại học tài chính kế toán
+      - đại học tài chính marketing
+      - đại học tài nguyên và môi trường hà nội
+      - đại học tài chính kế toán
+      - đại học tài nguyên và môi trường tp hcm
+      - đại học tân trào
+      - đại học tân tạo
+      - đại học tây nguyên
+      - đại học tây đô
+      - đại học tây bắc
+      - đại học thái bình
+      - đại học thái bình dương
+      - đại học thành đông
+      - đại học thành đô
+      - đại học thể dục thể thao bắc ninh
+      - đại học thể dục thể thao đà nẵng
+      - đại học thể dục thể thao tp hcm
+      - đại học thủ dầu một
+      - đại học thủ đô hà nội
+      - đại học thủy lợi ( cơ sở 1 )
+      - đại học thủy lợi ( cơ sở 2 )
+      - đại học tiền giang
+      - đại học trà vinh
+      - đại học trưng vương
+      - đại học văn hóa hà nội
+      - đại học văn hóa
+      - đại học văn hoá tp hcm
+      - đại học văn hóa – nghệ thuật quân đội
+      - đại học việt đức
+      - đại học việt bắc
+      - đại học vinh
+      - đại học võ trường toản
+      - đại học xây dựng miền trung
+      - đại học xây dựng miền tây
+      - đại học xây dựng hà nội
+      - đại học y khoa vinh
+      - đại học y dược cần thơ
+      - đại học y dược - đại học thái nguyên
+      - đại học y dược - đại học huế
+      - đại học y tế công cộng
+      - đại học yersin đà lạt
+      - dfa
+      - học viện âm nhạc huế
+      - học viện âm nhạc quốc gia việt nam
+      - học viện an ninh nhân dân
+      - học viện biên phòng
+      - học viện cán bộ tp hcm
+      - học viện chính sách và phát triển
+      - học viện chính trị công an nhân dân
+      - học viện công nghệ bưu chính viễn thông (phía nam)
+      - học viện công nghệ bưu chính viễn thông (phía bắc)
+      - học viện hải quân
+      - học viện hàng không việt nam
+      - học viện hành chính quốc gia (phía nam)
+      - học viện hành chính quốc gia ( phía bắc )
+      - học viện hậu cần - hệ quân sự
+      - học viện hậu cần - hệ dân sự
+      - học viện khoa học quân sự - hệ dân sự
+      - học viện khoa học quân sự - hệ quân sự
+      - học viện kĩ thuật quân sự - hệ quân sự
+      - học viện kĩ thuật quân sự - hệ dân sự
+      - học viện kỹ thuật mật mã
+      - học viện ngân hàng phân viện bắc ninh
+      - học viên ngân hàng (phân viện phú yên)
+      - học viện phòng không - không quân
+      - học viện phụ nữ việt nam
+      - học viện quản lý giáo dục
+      - học viện quốc tế
+      - học viện thanh thiếu niên việt nam
+      - học viện tòa án
+      - học viện y dược học cổ truyền việt nam
+      - khoa giáo dục thể chất - đại học huế
+      - khoa giáo dục thể chất - đại học đà nẵng
+      - khoa y dược - đại học đà nẵng
+      - khoa các khoa học liên ngành - đại học quốc gia hà nội
+      - khoa du lịch - đại học huế
+      - khoa ngoại ngữ - đại học thái nguyên
+      - khoa quốc tế - đại học thái nguyên
+      - khoa quốc tế pháp ngữ - đại học quốc gia hà nội
+      - khoa quốc tế - đh huế
+      - khoa kỹ thuật và công nghệ - đh huế
+      - nhạc viện tp hcm
+      - phân hiệu đại học nội vụ tại tp hồ chí minh
+      - phân hiệu đại học thái nguyên tại lào cai
+      - phân hiệu đại học đà nẵng tại kon tum
+      - phân hiệu đại học nội vụ tại quảng nam
+      - phân hiệu đại học nông lâm tp hcm tại ninh thuận
+      - phân hiệu đại học nội vụ tại quảng nam
+      - phân hiệu đại học nông lâm tp hcm tại gia lai
+      - phân hiệu đại học huế tại quảng trị
+      - phân hiệu đh tài nguyên và môi trường tại thanh hoá
+      - phân hiệu hvktmm tại tp hcm
+      - trường sĩ quan lục quân 1 - đại học trần quốc tuấn
+      - trường sĩ quan không quân - hệ đại học
+      - trường sĩ quan phòng hóa
+      - trường sĩ quan chính trị - đại học chính trị
+      - trường sĩ quan công binh - hệ quân sự - đại học ngô quyền
+      - trường sĩ quan lục quân 2 - đại học nguyễn huệ
+      - trường sĩ quan pháo binh
+      - trường sĩ quan kĩ thuật quân sự - hệ dân sự - đại học trần đại nghĩa
+      - trường sĩ quan thông tin - hệ dân sự - đại học thông tin liên lạc
+      - trường sĩ quan thông tin - hệ quân sự - đại học thông tin liên lạc
+      - trường sĩ quan kĩ thuật quân sự -  hệ quân sự - đại học trần đại nghĩa
+      - trường sĩ  quan tăng - thiết giáp
+      - trường sĩ quan đặc công
+      - trường sĩ quan công binh - hệ dân sự - đại học ngô quyền
+      - trường sĩ quan chính trị (hệ dân sự)
+      - viện nghiên cứu và đào tạo việt - anh - đại học đà nẵng
+

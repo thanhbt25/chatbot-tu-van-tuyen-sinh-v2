@@ -1,0 +1,145 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - xin chào
+    - chào bạn
+    - hello
+    - hi
+    - chào buổi sáng
+    - chào cậu
+    - chào anh
+    - chào chị
+    - chào em
+    - chào nhé
+
+- intent: say_goodbye
+  examples: |
+    - tạm biệt
+    - hẹn gặp lại
+    - bye
+    - mình đi đây
+    - chào tạm biệt
+    - gặp lại sau nhé
+    - tạm biệt bạn
+    - hẹn mai gặp lại
+    - chào em nhé
+    - lần sau gặp lại
+
+- intent: help
+  examples: |
+    - bạn ơi giúp mình với
+    - anh ơi chỉ em với
+    - chị ơi em muốn hỏi
+    - cậu ơi giúp tớ
+    - chatbot ơi
+    - em muốn hỏi cái này
+    - giúp mình với bạn ơi
+    - bạn có thể hỗ trợ không
+    - ơi giúp mình với
+    - anh/chị cho em hỏi
+
+- intent: thanks
+  examples: |
+    - cảm ơn bạn
+    - cảm ơn nhiều nhé
+    - cảm ơn bạn đã giúp mình
+    - thanks
+    - ok cảm ơn
+    - cảm ơn anh
+    - cảm ơn chị
+    - cảm ơn cậu
+    - cảm ơn em nhiều
+    - rất cảm ơn bạn
+
+- intent: ask_benchmark
+  examples: |
+    - điểm chuẩn [đại học thương mại](school) năm [2023](year) là bao nhiêu
+    - năm [2022](year) ngành [khoa học dữ liệu](major) ở [đại học quốc gia TP.HCM](school) lấy mấy điểm
+    - ngành [luật](major) của [đại học luật hà nội](school) năm [2021](year) điểm chuẩn bao nhiêu
+    - [fpt](school) ngành [công nghệ thông tin](major) chuẩn đầu vào mấy điểm
+    - năm [2020](year) điểm chuẩn [đại học xây dựng](school) là bao nhiêu
+    - chuẩn đầu vào [đại học ngoại thương](school) ngành [tài chính ngân hàng](major) năm [2021](year)
+    - điểm chuẩn trường [đại học bách khoa đà nẵng](school) năm [2022](year)
+    - [đại học mỏ địa chất](school) năm [2023](year) điểm bao nhiêu
+    - điểm trúng tuyển ngành [ngôn ngữ Anh](major) ở [đại học ngoại ngữ - đhqg hà nội](school) năm [2023](year)
+    - [học viện ngân hàng](school) năm [2021](year) chuẩn đầu vào ngành [quản trị kinh doanh](major)
+
+- intent: chitchat
+  examples: |
+    - bạn tên là gì
+    - bạn có khỏe không
+    - hôm nay thế nào
+    - bạn có người yêu chưa
+    - bạn thích ăn gì
+    - kể chuyện cười đi
+    - bạn có thể hát không
+    - trời hôm nay nóng quá
+    - bạn đang ở đâu vậy
+    - bạn có buồn không
+
+- intent: ask_major
+  examples: |
+    - [đại học ngoại thương](school) có những ngành gì
+    - [đại học y dược TP.HCM](school) đào tạo ngành nào
+    - [học viện ngân hàng](school) có các chuyên ngành nào
+    - danh sách ngành học của [bách khoa hà nội](school)
+    - [fpt](school) có mở ngành [công nghệ thông tin](major) không
+    - ngành của [đại học xây dựng](school) gồm những gì
+    - [đại học mỏ địa chất](school) đào tạo những ngành nào
+    - [đại học thương mại](school) có ngành [marketing](major) không
+    - cho mình xin danh sách ngành của [đại học công nghiệp hà nội](school)
+    - [đại học sư phạm hà nội](school) có những khoa nào
+
+- intent: inform
+  examples: |
+    - [2023](year)
+    - năm [2022](year)
+    - [đại học bách khoa hà nội](school)
+    - [kinh tế quốc dân](school)
+    - ngành [công nghệ thông tin](major)
+    - [25](score) điểm
+    - em được [27.5](score)
+    - [150](quota) chỉ tiêu
+    - tổ hợp [A00](subject_combination)
+    - khối [C00](subject_combination)
+
+- intent: ask_admission_chance
+  examples: |
+    - em được [25](score) điểm [A00](subject_combination), ngành [công nghệ thông tin](major) ở [fpt](school) có khả năng đỗ không
+    - với [21.5](score) điểm, em có đỗ [quản trị kinh doanh](major) trường [kinh tế quốc dân](school) không
+    - [19](score) điểm thì có cửa vào [tài chính ngân hàng](major) ở [học viện ngân hàng](school) không
+    - [17.75](score) điểm tổ hợp [C00](subject_combination) có đỗ ngành [luật](major) trường [đại học quốc gia hà nội](school) không
+    - nếu em đạt [28](score) điểm [B00](subject_combination) thì vào [đại học y dược TP.HCM](school) ngành [dược học](major) được không
+    - [23.5](score) điểm thì cơ hội vào [quản trị kinh doanh](major) trường [đại học kinh tế TP.HCM](school) thế nào
+    - [20](score) điểm có thể vào [công nghệ sinh học](major) trường [học viện nông nghiệp](school) không
+    - với [27.5](score) điểm [A01](subject_combination) ngành [khoa học máy tính](major) [bách khoa hà nội](school) có khả năng nhận không
+    - [16](score) điểm thì ngành [giáo dục tiểu học](major) ở [sư phạm hà nội](school) có vào được không
+    - [29](score) điểm [A00](subject_combination), chỉ tiêu [50](quota) ngành [trí tuệ nhân tạo](major) [đại học quốc gia hà nội](school) có chắc suất không
+
+- intent: ask_predict_benchmark
+  examples: |
+    - dự đoán điểm chuẩn [2026](year) ngành [công nghệ thông tin](major) trường [đại học fpt](school)
+    - năm [2026](year) ngành [cơ khí](major) [bách khoa hà nội](school) lấy bao nhiêu điểm
+    - [đại học kinh tế quốc dân](school) ngành [quản trị kinh doanh](major) năm [2027](year) điểm chuẩn dự đoán
+    - năm [2026](year) [ngôn ngữ anh](major) [đại học hà nội](school) dự đoán bao nhiêu điểm
+    - dự đoán điểm ngành [trí tuệ nhân tạo](major) [đại học fpt](school) năm [2026](year)
+    - năm [2026](year) ngành [công nghệ ô tô](major) tại [đại học công nghiệp hà nội](school) điểm chuẩn thế nào
+    - điểm chuẩn ước lượng ngành [marketing](major) [đại học thương mại](school) năm [2026](year)
+    - bạn dự đoán giúp mình điểm chuẩn ngành [công nghệ sinh học](major) [đại học quốc gia hà nội](school) năm [2026](year)
+    - ngành [y đa khoa](major) của [đại học y hà nội](school) năm [2026](year) chuẩn dự kiến bao nhiêu
+    - cho mình biết dự đoán điểm chuẩn ngành [kỹ thuật phần mềm](major) [đại học công nghệ](school) năm [2026](year)
+
+- intent: ask_detail_guess
+  examples: |
+    - bạn dự đoán điểm chuẩn dựa vào dữ liệu gì
+    - có thể nói chi tiết cách dự đoán điểm chuẩn không
+    - bạn dùng thuật toán gì để dự đoán điểm chuẩn
+    - mô hình dự đoán điểm chuẩn dựa trên yếu tố nào
+    - có tính xu hướng tăng giảm khi dự đoán điểm chuẩn không
+    - sai số trong dự đoán điểm chuẩn khoảng bao nhiêu
+    - bạn có so sánh dữ liệu giữa các trường để dự đoán không
+    - bạn dùng phương pháp hồi quy hay máy học vậy
+    - bạn có thể giải thích mô hình dự đoán ra con số thế nào không
+    - dữ liệu huấn luyện mô hình dự đoán điểm chuẩn lấy từ đâu

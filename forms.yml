@@ -1,0 +1,28 @@
+version: "3.1"
+forms:
+  benchmark_form:
+    required_slots:
+      - school
+      - year
+      - major
+
+  major_form:
+    required_slots:
+      - school 
+
+  admission_chance_form:
+    required_slots:
+      - school
+      - score
+      - subject_combination
+      - major
+      - year
+
+  predict_benchmark_form:
+    required_slots:
+      - school
+      - subject_combination
+      - major
+
+
+

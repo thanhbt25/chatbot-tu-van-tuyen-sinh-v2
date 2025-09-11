@@ -1,0 +1,111 @@
+version: "3.1"
+
+stories:
+  - story: chào hỏi
+    steps:
+    - intent: greet
+    - action: utter_greet
+
+  - story: tạm biệt
+    steps:
+    - intent: say_goodbye
+    - action: utter_say_goodbye
+
+  - story: trợ giúp
+    steps:
+    - intent: help
+    - action: utter_help
+
+  # Hỏi điểm chuẩn với đầy đủ thông tin
+  - story: ask_benchmark_with_all_info
+    steps:
+    - intent: ask_benchmark
+    - action: action_benchmark
+
+  # Hỏi điểm chuẩn thiếu ngành
+  - story: ask_benchmark_no_major
+    steps:
+    - intent: ask_benchmark
+    - action: action_benchmark
+    - intent: ask_major
+    - action: action_find_major
+
+  # Hỏi điểm chuẩn thiếu trường
+  - story: ask_benchmark_no_school
+    steps:
+    - intent: ask_benchmark
+    - action: action_benchmark
+    - intent: ask_major
+    - action: action_find_major
+
+  # Hỏi điểm chuẩn thiếu năm
+  - story: ask_benchmark_no_year
+    steps:
+    - intent: ask_benchmark
+    - action: action_benchmark
+    - intent: ask_major
+    - action: action_find_major
+
+  # Hỏi điểm chuẩn thiếu trường và ngành
+  - story: ask_benchmark_no_major
+    steps:
+    - intent: ask_benchmark
+    - action: action_benchmark
+    - intent: ask_major
+    - action: action_find_major
+    - intent: ask_benchmark
+    - action: action_benchmark
+
+  # Hỏi nhiều ngành
+  - story: ask_multi_major
+    steps:
+    - intent: ask_major
+    - action: action_find_major
+    - intent: ask_major
+    - action: action_find_major
+    - intent: ask_major
+    - action: action_find_major
+
+  # Hỏi nhiều trường
+  -  story: ask_multi_benchmark
+     steps:
+     - intent: ask_benchmark
+     - action: action_benchmark
+     - intent: ask_benchmark
+     - action: action_benchmark
+     - intent: ask_benchmark
+     - action: action_benchmark
+
+  # Hỏi cơ hội đỗ 
+  - story: ask_admission_chance
+    steps:
+    - intent: ask_admission_chance
+    - action: action_admission_chance
+    - intent: ask_admission_chance
+    - action: action_admission_chance
+  
+  # Hỏi ngành rồi cơ hội đỗ
+  - story: ask_major_then_admission_chance
+    steps:
+    - intent: ask_major
+    - action: action_find_major
+    - intent: ask_admission_chance
+    - action: action_admission_chance
+
+  # Hỏi điểm chuẩn rồi cơ hội đỗ
+  - story: ask_benchmark_then_admission_chance
+    steps:
+    - intent: ask_benchmark
+    - action: action_benchmark
+    - intent: ask_admission_chance
+    - action: action_admission_chance
+
+  # Hỏi ngành, điểm chuẩn rồi cơ hội đỗ 
+  - story: ask_major_benchmark_admission_chance
+    steps:
+    - intent: ask_major
+    - action: action_find_major
+    - intent: ask_benchmark
+    - action: action_benchmark
+    - intent: ask_admission_chance
+    - action: action_admission_chance

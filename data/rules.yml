@@ -1,0 +1,105 @@
+version: "3.1"
+
+rules:
+  # Nếu người dùng có ý định chao_hoi, chatbot sẽ thực hiện hành động utter_chao_hoi 
+  # utter là tiền tố của các responses mà bạn đã định nghĩa trong domain.yml => là action mặc định của Rasa 
+  - rule: chào 
+    steps:
+    - intent: greet
+    - action: utter_greet
+
+  - rule: giúp đỡ 
+    steps:
+    - intent: help
+    - action: utter_help
+
+  - rule: tạm biệt 
+    steps:
+    - intent: say_goodbye
+    - action: utter_say_goodbye
+
+  - rule: cảm ơn 
+    steps:
+    - intent: thanks
+    - action: utter_thanks 
+
+  # Hỏi thông tin thiếu khi hỏi điểm chuẩn
+  - rule: Kích hoạt form hỏi điểm chuẩn 
+    steps:
+      - intent: ask_benchmark # khi người dùng hỏi tra điểm chuẩn 
+      - action: benchmark_form # bot sẽ gọi form benchmark_form để chịu trách nhiệm thu thập các slot
+      - active_loop: benchmark_form # nói với rasa rằng từ giờ bot đang ở trong form này (active loop = vòng lặp thu thập bot). Bot sẽ liên tục hỏi utter_ask_school, utter_ask_major, utter_ask_year
+
+  - rule: Hoàn tất form
+    condition: # rule chỉ chạy khi thỏa mã điều kiện là đang trong form benchmark_form 
+      - active_loop: benchmark_form
+    steps:
+      - action: benchmark_form
+      - active_loop: null # đóng form, tức là thoát khỏi chế độ hỏi slot 
+      - action: action_benchmark  # gọi custom action khi đã có đủ thông tin 
+
+  # Hỏi thông tin thiếu khi hỏi ngành 
+  - rule: Kích hoạt form hỏi ngành 
+    steps: 
+      - intent: ask_major 
+      - action: major_form
+      - active_loop: major_form 
+
+  - rule: Hoàn tất form 
+    condition: 
+      - active_loop: major_form 
+    steps: 
+      - action: major_form
+      - active_loop: null
+      - action: action_find_major
+
+  # Hỏi thông tin thiếu khi hỏi khả năng đỗ 
+  - rule: Kích hoạt form hỏi khả năng đỗ 
+    steps: 
+      - intent: ask_admission_chance
+      - action: admission_chance_form
+      - active_loop: admission_chance_form
+
+  - rule: Hoàn tất form 
+    condition: 
+      - active_loop: admission_chance_form
+    steps: 
+      - action: admission_chance_form
+      - active_loop: null
+      - action: action_admission_probability
+
+  # Hỏi thông tin thiếu khi hỏi điểm chuẩn dự đoán 
+  - rule: Kích hoạt form hỏi điểm chuẩn dự đoán 
+    steps:
+      - intent: ask_predict_benchmark
+      - action: predict_benchmark_form
+      - active_loop: predict_benchmark_form
+
+  - rule: Hoàn tất form 
+    condition: 
+      - active_loop: predict_benchmark_form
+    steps:
+      - action: predict_benchmark_form
+      - active_loop: null
+      - action: action_predict_cutoff 
+
+  # fallback 
+  - rule: Fallback khi không hiểu người dùng
+    steps: 
+      - intent: nlu_fallback 
+      - action: action_default_fallback
+
+  # Trả lời lệch hướng khi bot hỏi slot
+  - rule: Handle irrelevant answer inside admission_chance_form
+    condition:
+    - active_loop: admission_chance_form
+    steps:
+    - intent: out_of_scope
+    - action: utter_please_rephrase
+    - action: admission_chance_form
+    - active_loop: admission_chance_form
+
+  - rule: answer chitchat
+    steps:
+    - intent: chitchat
+    - action: utter_chitchat
