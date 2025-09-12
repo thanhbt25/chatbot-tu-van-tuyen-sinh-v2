@@ -3,109 +3,216 @@ version: "3.1"
 stories:
   - story: chào hỏi
     steps:
-    - intent: greet
-    - action: utter_greet
+      - intent: greet
+      - action: utter_greet
 
   - story: tạm biệt
     steps:
-    - intent: say_goodbye
-    - action: utter_say_goodbye
+      - intent: say_goodbye
+      - action: utter_say_goodbye
 
   - story: trợ giúp
     steps:
-    - intent: help
-    - action: utter_help
+      - intent: help
+      - action: utter_help
 
-  # Hỏi điểm chuẩn với đầy đủ thông tin
-  - story: ask_benchmark_with_all_info
+  # kịch bản hỏi điểm chuẩn
+  - story: hỏi điểm chuẩn có ngành, trường và năm
     steps:
-    - intent: ask_benchmark
-    - action: action_benchmark
+      - intent: ask_benchmark
+        entities:
+          - major: "khoa học máy tính"
+          - school: "đại học bách khoa hà nội"
+          - year: "2022"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
 
-  # Hỏi điểm chuẩn thiếu ngành
-  - story: ask_benchmark_no_major
+  - story: hỏi điểm chuẩn nhiều ngành cùng 1 trường
     steps:
-    - intent: ask_benchmark
-    - action: action_benchmark
-    - intent: ask_major
-    - action: action_find_major
+      - intent: ask_benchmark
+        entities:
+          - major: "khoa học máy tính"
+          - school: "đại học bách khoa hà nội"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+      - intent: ask_benchmark
+        entities:
+          - major: "công nghệ thông tin"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
 
-  # Hỏi điểm chuẩn thiếu trường
-  - story: ask_benchmark_no_school
+  - story: hỏi nhiều trường cùng 1 chuyên ngành
     steps:
-    - intent: ask_benchmark
-    - action: action_benchmark
-    - intent: ask_major
-    - action: action_find_major
+      - intent: ask_benchmark
+        entities:
+          - major: "khoa học máy tính"
+          - school: "đại học bách khoa hà nội"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+      - intent: ask_benchmark
+        entities:
+          - school: "đại học công nghệ - đại học quốc gia hà nội"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
 
-  # Hỏi điểm chuẩn thiếu năm
-  - story: ask_benchmark_no_year
+  - story: hỏi cùng ngành, cùng trường nhưng năm khác
     steps:
-    - intent: ask_benchmark
-    - action: action_benchmark
-    - intent: ask_major
-    - action: action_find_major
+      - intent: ask_benchmark
+        entities:
+          - major: "khoa học máy tính"
+          - school: "đại học bách khoa hà nội"
+          - year: "2025"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+      - intent: ask_benchmark
+        entities:
+          - year: "2024"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
 
-  # Hỏi điểm chuẩn thiếu trường và ngành
-  - story: ask_benchmark_no_major
+  # kịch bản hỏi dự đoán điểm chuẩn
+  - story: dự đoán điểm chuẩn có cả ngành và trường
     steps:
-    - intent: ask_benchmark
-    - action: action_benchmark
-    - intent: ask_major
-    - action: action_find_major
-    - intent: ask_benchmark
-    - action: action_benchmark
+      - intent: ask_admission_chance
+        entities:
+          - school: "đại học bách khoa"
+          - major: "trí tuệ nhân tạo"
+      - action: admission_chance_form
+      - active_loop: null
+      - action: action_admission_probability
 
-  # Hỏi nhiều ngành
-  - story: ask_multi_major
+  - story: hỏi điểm chuẩn ngành, trường rồi hỏi tiếp thế năm nay dự đoán bao nhiêu
     steps:
-    - intent: ask_major
-    - action: action_find_major
-    - intent: ask_major
-    - action: action_find_major
-    - intent: ask_major
-    - action: action_find_major
+      - intent: ask_benchmark
+        entities:
+          - school: "đại học bách khoa"
+          - major: "trí tuệ nhân tạo"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+      - intent: ask_admission_chance
+        entities:
+          - year: "2025"
+      - action: admission_chance_form
+      - active_loop: null
+      - action: action_admission_probability
 
-  # Hỏi nhiều trường
-  -  story: ask_multi_benchmark
-     steps:
-     - intent: ask_benchmark
-     - action: action_benchmark
-     - intent: ask_benchmark
-     - action: action_benchmark
-     - intent: ask_benchmark
-     - action: action_benchmark
+  # Kịch bản hỏi cơ hội đỗ
+  - story: hỏi cơ hội đỗ đầy đủ thông tin
+    steps:
+      - intent: ask_admission_chance
+        entities:
+          - score: "25"
+          - subject_group: "A00"
+          - major: "công nghệ thông tin"
+          - school: "đại học bách khoa"
+      - action: admission_chance_form
+      - active_loop: null
+      - action: action_admission_probability
 
-  # Hỏi cơ hội đỗ 
-  - story: ask_admission_chance
+  - story: hỏi điểm chuẩn trước rồi hỏi cơ hội đỗ
     steps:
-    - intent: ask_admission_chance
-    - action: action_admission_chance
-    - intent: ask_admission_chance
-    - action: action_admission_chance
-  
-  # Hỏi ngành rồi cơ hội đỗ
-  - story: ask_major_then_admission_chance
-    steps:
-    - intent: ask_major
-    - action: action_find_major
-    - intent: ask_admission_chance
-    - action: action_admission_chance
+      - intent: ask_benchmark
+        entities:
+          - major: "công nghệ thông tin"
+          - school: "đại học bách khoa"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+      - intent: ask_admission_chance
+        entities:
+          - score: "26"
+          - subject_group: "A00"
+      - action: admission_chance_form
+      - active_loop: null
+      - action: action_admission_probability
 
-  # Hỏi điểm chuẩn rồi cơ hội đỗ
-  - story: ask_benchmark_then_admission_chance
+  - story: hỏi cơ hội đỗ thiếu thông tin
     steps:
-    - intent: ask_benchmark
-    - action: action_benchmark
-    - intent: ask_admission_chance
-    - action: action_admission_chance
+      - intent: ask_admission_chance
+        entities:
+          - score: "27"
+      - action: admission_chance_form
+      - active_loop: null
+      - action: action_admission_probability
 
-  # Hỏi ngành, điểm chuẩn rồi cơ hội đỗ 
-  - story: ask_major_benchmark_admission_chance
+  # Kịch bản hỏi xếp hạng điểm
+  - story: hỏi xếp hạng điểm trực tiếp
     steps:
-    - intent: ask_major
-    - action: action_find_major
-    - intent: ask_benchmark
-    - action: action_benchmark
-    - intent: ask_admission_chance
-    - action: action_admission_chance
+      - intent: ask_score_rank
+        entities:
+          - score: "28.85"
+          - subject_group: "A00"
+      - action: score_rank_form
+      - active_loop: null
+      - action: action_score_rank
+
+  - story: hỏi điểm chuẩn trước rồi hỏi xếp hạng
+    steps:
+      - intent: ask_benchmark
+        entities:
+          - school: "đại học bách khoa"
+          - major: "trí tuệ nhân tạo"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+      - intent: ask_score_rank
+        entities:
+          - score: "29"
+      - action: score_rank_form
+      - active_loop: null
+      - action: action_score_rank
+
+  # Kịch bản hỏi ngành
+  - story: hỏi danh sách ngành một trường
+    steps:
+      - intent: ask_major
+        entities:
+          - school: "đại học bách khoa hà nội"
+      - action: major_form
+      - active_loop: null
+      - action: action_find_major
+
+  - story: hỏi ngành nhiều trường nối tiếp
+    steps:
+      - intent: ask_major
+        entities:
+          - school: "đại học bách khoa hà nội"
+      - action: major_form
+      - active_loop: null
+      - action: action_find_major
+      - intent: ask_major
+        entities:
+          - school: "đại học công nghệ - đại học quốc gia hà nội"
+      - action: major_form
+      - active_loop: null
+      - action: action_find_major
+
+  # Kịch bản kết hợp
+  - story: kết hợp ngành → điểm chuẩn → cơ hội đỗ → giải thích
+    steps:
+      - intent: ask_major
+        entities:
+          - school: "đại học bách khoa hà nội"
+      - action: major_form
+      - active_loop: null
+      - action: action_find_major
+      - intent: ask_benchmark
+        entities:
+          - major: "công nghệ thông tin"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+      - intent: ask_admission_chance
+        entities:
+          - score: "28"
+      - action: admission_chance_form
+      - active_loop: null
+      - action: action_admission_probability

@@ -133,58 +133,6 @@ nlu:
       - [đại học văn hóa hà nội](school) có bao nhiêu ngành học?
       - em muốn biết ngành mà [học viện chính trị quốc gia](school) đào tạo
 
-  # Inform 
-  - intent: inform
-    examples: |
-      - [2023](year)
-      - năm [2022](year)
-      - năm [2021](year)
-      - điểm năm [2020](year)
-      - [2024](year) cơ
-      - à năm [2025](year) nhé
-      - năm [2026](year) đi bạn
-      - [2027](year) chứ không phải 2023
-      - [đại học bách khoa hà nội](school)
-      - trường [kinh tế quốc dân](school)
-      - [fpt](school)
-      - [đại học thương mại](school)
-      - à là [học viện ngân hàng](school)
-      - mình định hỏi [y hà nội](school)
-      - [đại học xây dựng](school) nhé
-      - trường [công nghiệp hà nội](school)
-      - ngành [công nghệ thông tin](major)
-      - [khoa học dữ liệu](major)
-      - [y đa khoa](major)
-      - học [luật](major)
-      - [quản trị kinh doanh](major)
-      - [ngôn ngữ Anh](major)
-      - à [marketing](major)
-      - [công nghệ sinh học](major)
-      - [25](score) điểm
-      - em được [27.5](score)
-      - [19](score) thôi
-      - [20.25](score)
-      - khoảng [28](score) điểm
-      - [18.5](score) nha
-      - [30](score)
-      - chỉ [16](score) điểm
-      - [150](quota) chỉ tiêu
-      - khoảng [200](quota) suất
-      - lấy [300](quota) người
-      - chỉ tiêu [100](quota)
-      - [75](quota) thí sinh
-      - khoảng [500](quota) chỗ
-      - [68](quota) chỉ tiêu năm nay
-      - năm nay tuyển [240](quota) thôi
-      - tổ hợp [A00](subject_combination)
-      - [D01](subject_combination)
-      - khối [C00](subject_combination)
-      - em thi [A01](subject_combination)
-      - [B00](subject_combination) nhé
-      - [D07](subject_combination)
-      - khối [C03](subject_combination)
-      - [A02](subject_combination)
-
   # Hỏi cơ hội đỗ
   - intent: ask_admission_chance
     examples: |
@@ -233,32 +181,6 @@ nlu:
       - Điểm chuẩn ước tính của ngành [công nghệ nano](major) ở [đại học quốc gia tp hcm](school) năm [2026](year) là bao nhiêu?
       - Bạn có thể cho mình dự đoán điểm chuẩn ngành [truyền thông đa phương tiện](major) trường [học viện báo chí](school) năm [2026](year) không?
 
-
-  # Hỏi kĩ hơn về cách dự đoán 
-  - intent: ask_detail_guess
-    examples: |
-      - Bạn có thể giải thích chi tiết cách dự đoán điểm chuẩn không?
-      - Cho em biết thuật toán nào được dùng để dự đoán điểm chuẩn vậy?
-      - Mô hình dự đoán điểm chuẩn của bạn dựa trên dữ liệu gì?
-      - Bạn dự đoán điểm chuẩn dựa vào năm trước hay có thêm yếu tố nào khác?
-      - Giải thích cho mình cơ sở khi dự đoán điểm chuẩn đi.
-      - Bạn dự đoán điểm chuẩn theo phương pháp thống kê hay máy học vậy?
-      - Có thể nói rõ hơn cách bạn tính toán để đưa ra điểm chuẩn dự đoán không?
-      - Điểm chuẩn dự đoán được ước lượng bằng mô hình nào?
-      - Cơ chế dự đoán điểm chuẩn của hệ thống hoạt động thế nào?
-      - Bạn có thể phân tích chi tiết các bước trong việc dự đoán điểm chuẩn không?
-      - Dự đoán điểm chuẩn thì bạn dùng dữ liệu của những năm nào?
-      - Bạn có so sánh dữ liệu giữa các trường khác nhau khi dự đoán không?
-      - Mô hình có sử dụng trí tuệ nhân tạo để dự đoán điểm chuẩn không?
-      - Giải thích giúp mình sự khác biệt giữa dự đoán bằng thống kê và bằng AI.
-      - Khi dự đoán điểm chuẩn thì có tính đến xu hướng tăng giảm của từng ngành không?
-      - Bạn dùng phương pháp hồi quy hay mô hình học máy để ước lượng điểm chuẩn?
-      - Có thể cho biết vì sao kết quả dự đoán có thể khác so với điểm thật?
-      - Trong dự đoán điểm chuẩn, sai số thường nằm trong khoảng bao nhiêu?
-      - Bạn có thể giải thích chi tiết mô hình dự đoán như thế nào để ra con số cuối cùng?
-      - Cho mình biết cơ sở dữ liệu nào được sử dụng để huấn luyện mô hình dự đoán điểm chuẩn?
-
-  # sửa câu ví dụ 
   - intent: ask_score_rank
     examples: |
       - Tôi được [25](score) điểm môn [A00](subject_combination) thì tôi nằm trong top mấy? 
@@ -282,6 +204,20 @@ nlu:
       - Tôi muốn biết top % của [24](score) điểm môn [A00](subject_combination)
       - Với [29](score) điểm môn [A07](subject_combination), tôi đang ở vị trí nào?
 
+  - intent: out_of_scope 
+    examples: |
+      - kể chuyển cười cho tôi đi 
+      - hôm nay thời tiết thật đẹp 
+      - tôi muốn đi tắm thì nên đi tắm ở đâu 
+      - tôi muốn nghe nhạc
+      - nhạc nào thì hay nhỉ 
+      - bạn bao nhiêu tuổi
+      - tôi thích ăn cá
+      - tôi muốn đi chơi
+      - sau khi tốt nghiệp thì đi đâu chơi thì vui nhỉ 
+      - tôi muốn điểm cao thì ăn gì để giỏi hơn 
+      - tôi muốn đi singapore chơi
+      - ca sĩ yêu thích của bạn là gì? 
   # Regex cho năm
   - regex: year
     examples: |
@@ -299,7 +235,7 @@ nlu:
   # Regex cho điểm số (có thể có thập phân)
   - regex: score
     examples: |
-      - \b(30(\.0+)?|[0-9]|[1-2][0-9](\.[0-9]+)?)(\s?điểm)?\b
+      - \b(30(\.0+)?|[0-9]|[1-2][0-9](\.[0-9]+)?)\b
       - 18
       - 20.6
       - 27.89

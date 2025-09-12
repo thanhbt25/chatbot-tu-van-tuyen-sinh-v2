@@ -1,8 +1,8 @@
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from typing import Any, Text, Dict, List
-from actions.utils.prediction import predict_cutoff
-from actions.utils.data_loader import benchmark_df
+from actions.utils.prediction import estimate_cutoff_multi
+from actions.utils.help import extract_number
 
 class ActionPredictCutoff(Action):
     def name(self) -> Text:
@@ -14,12 +14,17 @@ class ActionPredictCutoff(Action):
 
         school = tracker.get_slot("school")
         major = tracker.get_slot("major")
+        subject_combination = tracker.get_slot("subject_combination")
+        quota = tracker.get_slot("quota")
 
-        if not school or not major:
-            dispatcher.utter_message(text="Bạn cần cung cấp tên trường và ngành.")
-            return []
+        if isinstance(quota, str):
+            quota = extract_number(quota)
 
-        cutoff = predict_cutoff(school, major)
+        if quota == None: 
+            cutoff = estimate_cutoff_multi(school, major, subject_combination)
+        else: 
+            cutoff = estimate_cutoff_multi(school, major, subject_combination, quota)
+
         if cutoff:
             dispatcher.utter_message(text=f"Điểm chuẩn dự đoán cho ngành {major} tại {school} ≈ {round(cutoff,2)}")
         else:

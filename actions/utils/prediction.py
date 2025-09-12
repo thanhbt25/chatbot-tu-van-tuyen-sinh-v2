@@ -6,6 +6,7 @@ def predict_cutoff(school: str, major: str) -> float:
     Dự đoán điểm chuẩn năm 2025 bằng hồi quy tuyến tính.
     Trả về số điểm float (hoặc None nếu không đủ dữ liệu).
     """
+    print(benchmark_df.columns)
     record = benchmark_df[(benchmark_df["ten_truong"] == school) & (benchmark_df["ten_nganh"] == major)]
     if record.empty or record["nam"].nunique() < 2:
         return None
@@ -62,7 +63,7 @@ def estimate_by_normalization(subject_combination: str, school: str, major: str)
     cutoff_adjusted = cutoff_2024 + (mean_2025 - mean_2024)
     return float(cutoff_adjusted)
 
-def estimate_cutoff_multi(score: float, school: str, major: str, subject_combination: str, quota: int = 100) -> float:
+def estimate_cutoff_multi(school: str, major: str, subject_combination: str, quota: int = 200) -> float:
     """
     Ensemble: kết hợp nhiều chiến lược theo trọng số.
     """

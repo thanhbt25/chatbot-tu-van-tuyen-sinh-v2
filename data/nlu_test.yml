@@ -120,16 +120,21 @@ nlu:
 
 - intent: ask_predict_benchmark
   examples: |
-    - dự đoán điểm chuẩn [2026](year) ngành [công nghệ thông tin](major) trường [đại học fpt](school)
-    - năm [2026](year) ngành [cơ khí](major) [bách khoa hà nội](school) lấy bao nhiêu điểm
-    - [đại học kinh tế quốc dân](school) ngành [quản trị kinh doanh](major) năm [2027](year) điểm chuẩn dự đoán
-    - năm [2026](year) [ngôn ngữ anh](major) [đại học hà nội](school) dự đoán bao nhiêu điểm
-    - dự đoán điểm ngành [trí tuệ nhân tạo](major) [đại học fpt](school) năm [2026](year)
-    - năm [2026](year) ngành [công nghệ ô tô](major) tại [đại học công nghiệp hà nội](school) điểm chuẩn thế nào
-    - điểm chuẩn ước lượng ngành [marketing](major) [đại học thương mại](school) năm [2026](year)
-    - bạn dự đoán giúp mình điểm chuẩn ngành [công nghệ sinh học](major) [đại học quốc gia hà nội](school) năm [2026](year)
-    - ngành [y đa khoa](major) của [đại học y hà nội](school) năm [2026](year) chuẩn dự kiến bao nhiêu
-    - cho mình biết dự đoán điểm chuẩn ngành [kỹ thuật phần mềm](major) [đại học công nghệ](school) năm [2026](year)
+    - bạn có thể dự đoán điểm chuẩn ngành [công nghệ thông tin](major) trường [đại học quốc gia hà nội](school) năm [2024](year) không?
+    - dự đoán điểm chuẩn ngành [cơ khí](major) trường [bách khoa hà nội](school) năm nay là bao nhiêu?
+    - điểm chuẩn dự kiến ngành [an toàn thông tin](major) khoảng bao nhiêu vậy?
+    - cho em xin dự đoán điểm chuẩn trường [học viện ngân hàng](school) được không?
+    - liệu điểm chuẩn ngành [marketing](major) năm [2023](year) sẽ rơi vào khoảng bao nhiêu?
+    - bạn có biết điểm chuẩn ngành [y đa khoa](major) trường [đại học y hà nội](school) sẽ là bao nhiêu không?
+    - dự đoán điểm chuẩn năm [2025](year) của ngành [trí tuệ nhân tạo](major) trường [đại học bách khoa hà nội](school)
+    - điểm chuẩn dự đoán trường [đại học fpt](school) là bao nhiêu?
+    - cho tôi xin dự đoán điểm chuẩn ngành [công nghệ phần mềm](major)
+    - bạn ơi, năm [2022](year) ngành [công nghệ sinh học](major) điểm chuẩn khoảng bao nhiêu thế?
+    - bạn thử dự đoán điểm chuẩn ngành [điện tử viễn thông](major) trường [đại học bách khoa tp hcm](school) xem
+    - có thể cho tôi biết điểm chuẩn dự đoán ngành [luật kinh tế](major) không?
+    - điểm chuẩn ngành [khoa học dữ liệu](major) năm [2023](year) sẽ bao nhiêu?
+    - dự kiến điểm chuẩn của trường [học viện bưu chính viễn thông](school)
+    - điểm chuẩn ngành [cơ điện tử](major) có thể là bao nhiêu?
 
 - intent: ask_detail_guess
   examples: |

@@ -14,21 +14,18 @@ class ActionAskScoreRank(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         # Lấy slot
-        user_score = tracker.get_slot("score")
+        score = tracker.get_slot("score")
         subject_combination = tracker.get_slot("subject_combination")
 
-        # Nếu chưa có slot thì hỏi
-        if not user_score:
-            dispatcher.utter_message(text="Bạn được bao nhiêu điểm?")
-            return []
-        if not subject_combination:
-            dispatcher.utter_message(text="Bạn muốn tính top % cho tổ hợp môn nào?")
-            return []
-
         # Tính top %
-        top_percent = score_percentage_rank(user_score, subject_combination)
-        dispatcher.utter_message(
-            text=f"Bạn đang ở top {round(top_percent*100, 2)}% cho tổ hợp {subject_combination}."
-        )
+        top_percent = score_percentage_rank(score, subject_combination)
+        if top_percent > 0:       
+            dispatcher.utter_message(
+                text=f"Bạn đang ở top {round(top_percent*100, 2)}% cho tổ hợp {subject_combination}."
+            )
+        else:
+            dispatcher.utter_message(
+                text=f"Xin lỗi, trong cơ sở dữ liệu không tồn tại điểm như vậy. Liệu bạn có nhầm ở đâu không?"
+            )
 
         return []

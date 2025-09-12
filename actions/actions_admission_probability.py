@@ -28,11 +28,21 @@ class ActionAdmissionProbability(Action):
             dispatcher.utter_message(text="Điểm nhập không hợp lệ.")
             return []
 
-        cutoff = estimate_cutoff_multi(score, school, major, subject_combination, int(quota), return_avg_only=True)
+        if quota == None: 
+            cutoff = estimate_cutoff_multi(school, major, subject_combination)
+        else: 
+            cutoff = estimate_cutoff_multi(school, major, subject_combination, quota)
 
         if cutoff:
             prob = compute_admission_probability(score, cutoff)
-            dispatcher.utter_message(text=f"Xác suất đỗ ước tính ≈ {prob}% (cutoff ≈ {round(cutoff,2)})")
+            if prob <= 0: 
+                dispatcher.utter_message(text="Khả năng đỗ của bạn gần như bằng không. Mình nghĩ bạn nên chọn một ngành khác hoặc trường khác phù hợp với điểm của mình hơn. Bạn có thể hỏi mình thêm về vấn đề này nhé.")
+            elif prob < 50:
+                dispatcher.utter_message(text=f"Xác suất đỗ ước tính của bạn xấp xỉ {prob}% (cutoff ≈ {round(cutoff,2)}). Bạn có khả năng đỗ nhưng vẫn chưa hoàn toàn chắc chắn. Hãy thử thêm lựa chọn khác nhé.")
+            elif prob < 95: 
+                dispatcher.utter_message(text=f"Xác suất đỗ ước tính của bạn xấp xỉ {prob}% (cutoff ≈ {round(cutoff,2)}). Bạn có khẳ năng đỗ rất cao, nếu có thể thì hãy cứ thêm một số lựa chọn khác đề phòng nhé.")
+            else: 
+                dispatcher.utter_message(text=f"Xác suất đỗ ước tính ≈ {prob}% (cutoff ≈ {round(cutoff,2)}). Bạn hoàn toàn chắc chắn đỗ trường này, chúc mừng bạn nhé!")
         else:
             dispatcher.utter_message(text="Không đủ dữ liệu để tính xác suất đỗ.")
 

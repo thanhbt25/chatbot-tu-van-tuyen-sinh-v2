@@ -7,7 +7,6 @@ intents:
   - ask_major
   - ask_admission_chance
   - ask_predict_benchmark
-  - ask_detail_guess
   - help
   - thanks
   - inform 
@@ -35,7 +34,7 @@ slots:
       - type: from_entity
         entity: major
   year:
-    type: float
+    type: text 
     influence_conversation: true
     mappings:
       - type: from_entity
@@ -61,7 +60,6 @@ slots:
 actions:
   - action_benchmark
   - action_find_major
-  - action_model_details
   - action_admission_probability
   - action_predict_cutoff
   - action_default_fallback 
@@ -92,10 +90,10 @@ forms:
       - subject_combination
       - major
 
-  detail_guess_form:
+  score_rank_from:
     required_slots:
-      - school
-      - major
+      - score
+      - subject_combination
 
 responses:
   utter_please_rephrase:
