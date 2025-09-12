@@ -99,7 +99,24 @@ rules:
     - action: admission_chance_form
     - active_loop: admission_chance_form
 
+  # Hỏi chuyển linh tinh, không liên quan 
   - rule: answer chitchat
     steps:
     - intent: chitchat
     - action: utter_chitchat
+
+  # Hỏi vị trí hiện tại so với cả nước 
+  - rule: kích hoạt form hỏi điểm 
+    steps:
+      - intent: ask_score_rank
+      - action: score_rank_form
+      - active_loop: score_rank_form
+  
+  - rule: hoàn tất form hỏi điểm
+    condition: 
+      - active_loop: score_rank_form
+    steps:
+      - action: score_rank_form
+      - active_loop: null
+      - action: action_score_rank
+  
