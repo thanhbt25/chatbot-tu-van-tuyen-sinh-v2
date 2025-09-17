@@ -77,33 +77,6 @@ stories:
       - active_loop: null
       - action: action_benchmark
 
-  # kịch bản hỏi dự đoán điểm chuẩn
-  - story: dự đoán điểm chuẩn có cả ngành và trường
-    steps:
-      - intent: ask_admission_chance
-        entities:
-          - school: "đại học bách khoa"
-          - major: "trí tuệ nhân tạo"
-      - action: admission_chance_form
-      - active_loop: null
-      - action: action_admission_probability
-
-  - story: hỏi điểm chuẩn ngành, trường rồi hỏi tiếp thế năm nay dự đoán bao nhiêu
-    steps:
-      - intent: ask_benchmark
-        entities:
-          - school: "đại học bách khoa"
-          - major: "trí tuệ nhân tạo"
-      - action: benchmark_form
-      - active_loop: null
-      - action: action_benchmark
-      - intent: ask_admission_chance
-        entities:
-          - year: "2025"
-      - action: admission_chance_form
-      - active_loop: null
-      - action: action_admission_probability
-
   # Kịch bản hỏi cơ hội đỗ
   - story: hỏi cơ hội đỗ đầy đủ thông tin
     steps:
@@ -195,6 +168,190 @@ stories:
       - active_loop: null
       - action: action_find_major
 
+  # Kịch bản hỏi đề án xét tuyển của một trường 
+  - story: hỏi đề án tuyển sinh của một trường 
+    steps: 
+      - intent: ask_admission_proposal 
+        entities: 
+          - school: "đại học bách khoa hà nội"
+      - action: admission_proposal_form
+      - active_loop: null 
+      - action: action_admission_proposal
+
+  # Kịch bản hỏi đề liên tiến đề án tuyển sinh của nhiều trường 
+  - story: hỏi đề án tuyển sinh của nhiều trường 
+    steps: 
+      - intent: ask_admission_proposal
+        entities: 
+          - school: "đại học bách khoa hà nội"
+      - action: admission_proposal_form 
+      - active_loop: null
+      - action: action_admission_proposal
+      - intent: ask_admission_proposal
+        entities: 
+          - school: "đại học công nghiệp"
+      - action: admission_proposal_form
+      - active_loop: null
+      - action: action_admission_proposal
+
+  # Kịch bản tư vấn ngành nghề 
+  - story: tư vấn một ngành nghề 
+    steps: 
+      - intent: ask_major_info
+        entities: 
+          - major: "trí tuệ nhân tạo"
+      - action: major_info_form
+      - active_loop: null
+      - action: action_major_info
+
+  # Kịch bản tư vấn nhiều ngành nghề 
+  - story: tư vấn nhiều ngành nghề 
+    steps: 
+      - intent: ask_major_info
+        entities:
+          - major: "trí tuệ nhân tạo"
+      - action: major_info_form
+      - active_loop: null
+      - action: action_major_info
+      - intent: ask_major_info
+        entities: 
+          - major: "sư phạm toán"
+      - action: major_info_form
+      - active_loop: null
+      - action: action_major_info
+
+  # Kịch bản đề xuất ngành nghề phù hợp (một ngành)
+  - story: gợi ý ngành nghề phù hợp 
+    steps: 
+      - intent: ask_recommend_major
+        entities: 
+          - score: 20.5
+          - liked_subject: "toán, lý, hóa"
+          - disliked_subject: "văn"
+          - finance_requirement: "25 triệu"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+
+  # Kịch bản đề xuất ngành nghề phù hợp với thay đổi entities  
+  - story: gợi ý ngành nghề phù hợp nhưng cân nhắc tài chính 
+    steps: 
+      - intent: ask_recommend_major
+        entities: 
+          - score: 20.5
+          - liked_subject: "toán, lý, hóa"
+          - disliked_subject: "văn"
+          - finance_requirement: "25 triệu"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+      - intent: ask_recommend_major
+        entities: 
+          - finance_requirement: "30 triệu"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+
+  - story: gợi ý ngành nghề phù hợp nhưng thay đổi liked_subject
+    steps: 
+      - intent: ask_recommend_major
+        entities: 
+          - score: 20.5
+          - liked_subject: "toán, lý, hóa"
+          - disliked_subject: "văn"
+          - finance_requirement: "25 triệu"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+      - intent: ask_recommend_major
+        entities: 
+          - liked_subject: "sinh, tin"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+      
+  - story: gợi ý ngành nghề phù hợp nhưng thay đổi disliked_subject
+    steps: 
+      - intent: ask_recommend_major
+        entities: 
+          - score: 20.5
+          - liked_subject: "toán, lý, hóa"
+          - disliked_subject: "văn"
+          - finance_requirement: "25 triệu"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+      - intent: ask_recommend_major
+        entities: 
+          - disliked_subject: "sử, địa"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+
+  - story: gợi ý ngành nghề phù hợp nhưng thay đổi score
+    steps: 
+      - intent: ask_recommend_major
+        entities: 
+          - score: 20.5
+          - liked_subject: "toán, lý, hóa"
+          - disliked_subject: "văn"
+          - finance_requirement: "25 triệu"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+      - intent: ask_recommend_major
+        entities: 
+          - score: 22.0
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+
+  # Kịch bản hỏi học phí 
+  - story: hỏi học phí ngành học
+    steps:
+      - intent: ask_tuition_fee
+        entities: 
+          - school: "trường đại học bách khoa hà nội"
+          - major: "khoa học máy tính"
+          - year: "2025"
+      - action: tuition_fee_form
+      - active_loop: null
+      - action: action_get_tuition_fee
+
+  - story: hỏi học phí ngành học nhưng chọn lọc ngành 
+    steps: 
+      - intent: ask_tuition_fee
+        entities: 
+          - school: "trường đại học bách khoa hà nội"
+          - major: "khoa học máy tính"
+          - year: "2025"
+      - action: tuition_fee_form
+      - active_loop: tuition_fee_form
+      - action: action_get_tuition_fee
+      - intent: ask_tuition_fee
+        entities: 
+          - major: "trí tuệ nhân tạo"
+      - action: tuition_fee_form
+      - active_loop: null
+      - action: action_get_tuition_fee
+
+  - story: hỏi học phí ngành học theo từng năm 
+    steps: 
+      - intent: ask_tuition_fee
+        entities: 
+          - school: "trường đại học bách khoa hà nội"
+          - major: "khoa học máy tính"
+          - year: "2025"
+      - action: tuition_fee_form
+      - active_loop: tuition_fee_form
+      - action: action_get_tuition_fee
+      - intent: ask_tuition_fee
+        entities: 
+          - year: "2024"
+      - action: tuition_fee_form
+      - active_loop: null
+      - action: action_get_tuition_fee
+
   # Kịch bản kết hợp
   - story: kết hợp ngành → điểm chuẩn → cơ hội đỗ → giải thích
     steps:
@@ -216,3 +373,112 @@ stories:
       - action: admission_chance_form
       - active_loop: null
       - action: action_admission_probability
+
+  - story: full_admission_consultation
+    steps:
+      # Chào hỏi
+      - intent: greet
+      - action: utter_greet
+
+      # Xem ngành của trường A
+      - intent: ask_major
+        entities:
+          - school: "đại học A"
+      - action: major_form
+      - active_loop: null
+      - action: action_find_major
+
+      # Xem ngành của trường B
+      - intent: ask_major
+        entities:
+          - school: "đại học B"
+      - action: major_form
+      - active_loop: null
+      - action: action_find_major
+
+      # Hỏi ngành phù hợp theo sở thích và môn ghét
+      - intent: ask_recommend_major 
+        entities:
+          - liked_subject: "sinh học"
+          - disliked_subject: "hóa học"
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender 
+
+      # Hỏi điểm chuẩn ngành C trường B năm nay
+      - intent: ask_benchmark
+        entities:
+          - school: "đại học B"
+          - major: "ngành C"
+          - year: "2025"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+
+      # Dự đoán điểm chuẩn năm sau
+      - intent: ask_benchmark
+        entities:
+          - school: "đại học B"
+          - major: "ngành C"
+          - year: "2026"
+      - action: benchmark_form
+      - active_loop: null
+      - action: action_benchmark
+
+      # Tư vấn giữa 2 ngành C và D
+      - intent: ask_major_comparison
+      - action: action_major_comparison
+
+      # Hỏi triển vọng ngành C
+      - intent: ask_major_info
+        entities:
+          - major: "ngành C"
+      - action: major_info_form
+      - active_loop: null 
+      - action: action_major_info
+
+      # Hỏi triển vọng ngành D
+      - intent: ask_major_info
+        entities:
+          - major: "ngành D"
+      - action: major_info_form
+      - active_loop: null 
+      - action: action_major_info
+
+      # Hỏi vị trí nếu thi được 27 điểm
+      - intent: ask_score_rank
+        entities:
+          - score: "27"
+          - subject_combination: "A01"
+      - action: score_rank_form
+      - active_loop: null
+      - action: action_score_rank
+
+      # Hỏi cơ hội đỗ ngành C năm sau
+      - intent: ask_admission_chance
+        entities:
+          - school: "đại học A"
+          - major: "ngành C"
+          - score: "27"
+          - year: "2026"
+      - action: admission_chance_form
+      - active_loop: null
+      - action: action_admission_probability
+
+      # Hỏi học phí ngành C trường B
+      - intent: ask_tuition_fee
+        entities:
+          - school: "đại học B"
+          - major: "ngành C"
+      - action: tuition_fee_form
+      - active_loop: null
+      - action: action_get_tuition_fee
+
+      # Hỏi đề án tuyển sinh trường B
+      - intent: ask_admission_proposal
+        entities:
+          - school: "đại học B"
+      - action: admission_proposal_form
+      - active_loop: null
+      - action: action_admission_proposal
+

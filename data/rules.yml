@@ -30,7 +30,7 @@ rules:
       - action: benchmark_form # bot sẽ gọi form benchmark_form để chịu trách nhiệm thu thập các slot
       - active_loop: benchmark_form # nói với rasa rằng từ giờ bot đang ở trong form này (active loop = vòng lặp thu thập bot). Bot sẽ liên tục hỏi utter_ask_school, utter_ask_major, utter_ask_year
 
-  - rule: Hoàn tất form
+  - rule: Hoàn tất form hỏi điểm chuẩn 
     condition: # rule chỉ chạy khi thỏa mã điều kiện là đang trong form benchmark_form 
       - active_loop: benchmark_form
     steps:
@@ -45,7 +45,7 @@ rules:
       - action: major_form
       - active_loop: major_form 
 
-  - rule: Hoàn tất form 
+  - rule: Hoàn tất form hỏi ngành
     condition: 
       - active_loop: major_form 
     steps: 
@@ -60,7 +60,7 @@ rules:
       - action: admission_chance_form
       - active_loop: admission_chance_form
 
-  - rule: Hoàn tất form 
+  - rule: Hoàn tất form khả năng đỗ 
     condition: 
       - active_loop: admission_chance_form
     steps: 
@@ -68,20 +68,35 @@ rules:
       - active_loop: null
       - action: action_admission_probability
 
-  # Hỏi thông tin thiếu khi hỏi điểm chuẩn dự đoán 
-  - rule: Kích hoạt form hỏi điểm chuẩn dự đoán 
+  # Hỏi thông tin nếu thiếu khi người dùng hỏi đề án tuyển sinh 
+  - rule: Kích hoạt form hỏi đề án tuyển sinh 
     steps:
-      - intent: ask_predict_benchmark
-      - action: predict_benchmark_form
-      - active_loop: predict_benchmark_form
-
-  - rule: Hoàn tất form 
+      - intent: ask_admission_proposal
+      - action: admission_proposal_form
+      - active_loop: admission_proposal_form
+  
+  - rule: Hoàn tất form đề án tuyển sinh
     condition: 
-      - active_loop: predict_benchmark_form
-    steps:
-      - action: predict_benchmark_form
+      - active_loop: admission_proposal_form 
+    steps: 
+      - action: admission_proposal_form
       - active_loop: null
-      - action: action_predict_cutoff 
+      - action: action_admission_proposal
+
+  # Hỏi thông tin thiếu khi người dùng hỏi thông tin ngành nghề 
+  - rule: Kích hoạt form khi hỏi thông tin ngành nghề 
+    steps: 
+      - intent: ask_major_info
+      - action: major_info_form
+      - active_loop: major_info_form
+
+  - rule: Hoàn tất form thông tin ngành nghề 
+    condition: 
+      - active_loop: major_info_form
+    steps: 
+      - action: major_info_form
+      - active_loop: null
+      - action: action_major_info
 
   # fallback 
   - rule: Fallback khi không hiểu người dùng
@@ -103,7 +118,7 @@ rules:
   - rule: answer chitchat
     steps:
     - intent: chitchat
-    - action: utter_chitchat
+    - action: action_chitchat
 
   # Hỏi vị trí hiện tại so với cả nước 
   - rule: kích hoạt form hỏi điểm 
@@ -112,11 +127,77 @@ rules:
       - action: score_rank_form
       - active_loop: score_rank_form
   
-  - rule: hoàn tất form hỏi điểm
+  - rule: hoàn tất form hỏi vị trí điểm
     condition: 
       - active_loop: score_rank_form
     steps:
       - action: score_rank_form
       - active_loop: null
       - action: action_score_rank
+
+  # Hỏi đề án tuyển sinh 
+  - rule: Kích hoạt form hỏi đề án tuyển sinh trường 
+    steps: 
+      - intent: ask_admission_proposal
+      - action: admission_proposal_form
+      - active_loop: admission_proposal_form
+  
+  - rule: hoàn tất form khi hỏi đề án tuyển sinh
+    condition: 
+      - active_loop: admission_proposal_form
+    steps:
+      - action: admission_proposal_form 
+      - active_loop: null
+      - action: action_admission_proposal
+
+  # Đề xuất ngành nghề phù hợp 
+  - rule: kích hoạt form đề xuất ngành nghề phù hợp 
+    steps:
+      - intent: ask_recommend_major
+      - action: major_recommender_form
+      - active_loop: major_recommender_form
+
+  - rule: hoàn tất form khi đề xuất ngành nghề phù hợp 
+    condition: 
+      - active_loop: major_recommender_form
+    steps:
+      - action: major_recommender_form
+      - active_loop: null
+      - action: action_major_recommender
+
+  # Tư vấn ngành nghề
+  - rule: kích hoạt form tư vấn ngành nghề
+    steps: 
+      - intent: ask_major_info
+      - action: major_info_form
+      - active_loop: major_info_form
+
+  - rule: hoàn tất form khi tư vấn ngành nghề 
+    condition: 
+      - active_loop: major_info_form 
+    steps:
+      - action: major_info_form
+      - active_loop: null
+      - action: action_major_info
+  
+  # Hỏi học phí 
+  - rule: Hỏi học phí
+    steps:
+      - intent: ask_tuition_fee
+      - action: tuition_fee_form
+      - active_loop: tuition_fee_form
+
+  - rule: Gọi action khi form hoàn tất
+    condition:
+      - active_loop: tuition_fee_form
+    steps:
+      - action: tuition_fee_form
+      - active_loop: null
+      - action: action_get_tuition_fee
+
+  # So sánh ngành học 
+  - rule: So sánh ngành học 
+    steps: 
+      - intent: ask_major_comparison
+      - action: action_major_comparison
   

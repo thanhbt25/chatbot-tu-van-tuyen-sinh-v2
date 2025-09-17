@@ -6,6 +6,7 @@ BENCHMARK_CSV_PATH = os.path.join(BASE_DIR, '../../public/diem_chuan_dai_hoc.csv
 SCORE_2023_CSV_PATH = os.path.join(BASE_DIR, '../../public/diem_thi_thpt_2023_to_hop.csv')
 SCORE_2024_CSV_PATH = os.path.join(BASE_DIR, '../../public/diem_thi_thpt_2025_to_hop.csv')
 SCORE_2025_CSV_PATH = os.path.join(BASE_DIR, '../../public/diem_thi_thpt_2025_to_hop.csv')
+MAJORS_AGGREGATED_PATH = os.path.join(BASE_DIR, '../../public/majors_aggregated.csv')
 
 try:
     benchmark_df = pd.read_csv(BENCHMARK_CSV_PATH)

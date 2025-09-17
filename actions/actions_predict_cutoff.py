@@ -3,6 +3,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from typing import Any, Text, Dict, List
 from actions.utils.prediction import estimate_cutoff_multi
 from actions.utils.help import extract_number
+from services.gemini_response import paraphrase_response
 
 class ActionPredictCutoff(Action):
     def name(self) -> Text:
@@ -25,9 +26,15 @@ class ActionPredictCutoff(Action):
         else: 
             cutoff = estimate_cutoff_multi(school, major, subject_combination, quota)
 
+        response = ""
+
         if cutoff:
-            dispatcher.utter_message(text=f"Điểm chuẩn dự đoán cho ngành {major} tại {school} ≈ {round(cutoff,2)}")
+            response = f"Điểm chuẩn dự đoán cho ngành {major} tại {school} ≈ {round(cutoff,2)}"
         else:
-            dispatcher.utter_message(text="Không đủ dữ liệu để dự đoán điểm chuẩn.")
+            response = "Không đủ dữ liệu để dự đoán điểm chuẩn."
+
+        user_messenge = tracker.latest_message.get("text")
+        improve_response = paraphrase_response(user_messenge, response)
+        dispatcher.utter_message(text=improve_response)
 
         return []

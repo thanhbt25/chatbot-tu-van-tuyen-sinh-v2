@@ -6,12 +6,15 @@ intents:
   - ask_benchmark
   - ask_major
   - ask_admission_chance
-  - ask_predict_benchmark
   - help
   - thanks
-  - inform 
   - chitchat
   - ask_score_rank
+  - ask_admission_proposal
+  - ask_major_info
+  - ask_recommend_major
+  - ask_tuition_fee
+  - ask_major_comparison
 
 entities:
   - school
@@ -20,6 +23,10 @@ entities:
   - year
   - subject_combination
   - quota
+  - liked_subject
+  - disliked_subject
+  - finance_requirement
+  
 slots:
   school:
     type: text
@@ -34,7 +41,7 @@ slots:
       - type: from_entity
         entity: major
   year:
-    type: text 
+    type: text
     influence_conversation: true
     mappings:
       - type: from_entity
@@ -56,14 +63,37 @@ slots:
     mappings:
       - type: from_entity
         entity: quota
+  liked_subject:
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: liked_subject
+  disliked_subject:
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: disliked_subject
+  finance_requirement:
+    type: text
+    influence_conversation: true
+    mappings: 
+      - type: from_entity
+        entity: finance_requirement
 
 actions:
   - action_benchmark
   - action_find_major
   - action_admission_probability
-  - action_predict_cutoff
-  - action_default_fallback 
+  - action_default_fallback
   - action_score_rank
+  - action_admission_proposal 
+  - action_major_info
+  - action_major_recommender
+  - action_get_tuition_fee
+  - action_chitchat
+  - action_major_comparison
 
 forms:
   benchmark_form:
@@ -74,7 +104,7 @@ forms:
 
   major_form:
     required_slots:
-      - school 
+      - school
 
   admission_chance_form:
     required_slots:
@@ -90,11 +120,31 @@ forms:
       - subject_combination
       - major
 
-  score_rank_from:
+  score_rank_form:
     required_slots:
       - score
       - subject_combination
+  
+  major_info_form: 
+    required_slots: 
+      - major 
 
+  admission_proposal_form: 
+    required_slots:
+      - school 
+
+  major_recommender_form:
+    required_slots:
+      - score
+      - disliked_subject
+      - liked_subject
+      - finance_requirement
+
+  tuition_fee_form: 
+    required_slots:   
+      - school
+      - major
+      
 responses:
   utter_please_rephrase:
     - text: "Xin lỗi, mình chưa hiểu ý bạn. Bạn có thể nói lại rõ hơn được không?"
@@ -119,7 +169,7 @@ responses:
   utter_chitchat:
     - text: "Vâng, chuyện đó thú vị thật. Nhưng mình quay lại với câu hỏi nhé."
     - text: "Mình hiểu rồi. Giờ mình tiếp tục hỗ trợ bạn về tuyển sinh nhé."
-  
+
   utter_say_goodbye:
     - text: "Tạm biệt! Hẹn gặp lại bạn sau."
     - text: "Chúc bạn một ngày tốt lành!"

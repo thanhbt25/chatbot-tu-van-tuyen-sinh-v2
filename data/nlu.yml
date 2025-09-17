@@ -85,6 +85,26 @@ nlu:
       - em muốn biết điểm chuẩn [đại học công nghiệp hà nội](school) năm [2020](year)
       - [đại học tôn đức thắng](school) năm [2022](year) ngành [quản trị kinh doanh](major) chuẩn đầu vào là bao nhiêu?
       - ngành [công nghệ sinh học](major) trường [đại học nông nghiệp](school) năm [2021](year) lấy điểm chuẩn bao nhiêu?
+      - Có thể cho em hỏi điểm chuẩn năm [2026](year) ngành [khoa học máy tính](major) của trường [đại học bách khoa](school) được không.
+      - Bạn dự đoán giúp mình điểm chuẩn ngành [công nghệ thông tin](major) ở [đại học fpt](school) năm [2026](year) là bao nhiêu?
+      - Năm [2026](year) thì ngành [cơ khí](major) tại [đại học bách khoa hà nội](school) sẽ lấy khoảng mấy điểm?
+      - Cho em xin dự đoán điểm chuẩn của trường [kinh tế quốc dân](school) ngành [quản trị kinh doanh](major) năm [2027](year).
+      - Ngành [kỹ thuật điện](major) ở [đại học bách khoa](school) có thể có điểm chuẩn bao nhiêu trong năm [2026](year)?
+      - Điểm chuẩn dự đoán cho ngành [y đa khoa](major) của [đại học y hà nội](school) năm [2026](year) là khoảng bao nhiêu?
+      - Trường [đại học fpt](school) ngành [an toàn thông tin](major) năm [2026](year) sẽ có điểm chuẩn dự kiến thế nào?
+      - Cho hỏi năm [2026](year) ngành [ngôn ngữ anh](major) tại [đại học hà nội](school) thì điểm chuẩn sẽ ra sao?
+      - Dự đoán điểm vào ngành [toán tin ứng dụng](major) ở [khoa học tự nhiên](school) năm [2026](year).
+      - Năm [2026](year) điểm chuẩn ngành [marketing](major) của trường [tmdt](school) sẽ tầm bao nhiêu?
+      - Ngành [công nghệ sinh học](major) ở [đại học quốc gia hà nội](school) năm [2026](year) dự kiến điểm chuẩn là bao nhiêu?
+      - Điểm chuẩn ngành [trí tuệ nhân tạo](major) năm [2026](year) tại [đại học fpt](school) sẽ như thế nào?
+      - Cho mình biết điểm chuẩn dự báo ngành [khoa học dữ liệu](major) trường [bách khoa hà nội](school) năm [2026](year).
+      - Bạn tính giúp điểm chuẩn năm [2026](year) của ngành [kỹ thuật phần mềm](major) ở [đại học công nghệ](school) với.
+      - Trường [kinh tế quốc dân](school) năm [2026](year) ngành [tài chính ngân hàng](major) sẽ lấy khoảng mấy điểm chuẩn?
+      - Năm [2026](year) dự đoán điểm chuẩn ngành [công nghệ ô tô](major) tại [đại học công nghiệp hà nội](school).
+      - Cho em biết điểm chuẩn ước lượng ngành [robotics](major) năm [2026](year) ở [bkhn](school).
+      - Ngành [thương mại điện tử](major) tại [trường đại học thương mại](school) năm [2026](year) có dự đoán điểm chuẩn không?
+      - Điểm chuẩn ước tính của ngành [công nghệ nano](major) ở [đại học quốc gia tp hcm](school) năm [2026](year) là bao nhiêu?
+      - Bạn có thể cho mình dự đoán điểm chuẩn ngành [truyền thông đa phương tiện](major) trường [học viện báo chí](school) năm [2026](year) không?
 
   - intent: chitchat
     examples: |
@@ -157,30 +177,6 @@ nlu:
       - Em có [21](score) điểm, liệu ngành [công nghệ sinh học](major) trường [đại học bách khoa đà nẵng](school) có nhận không?
       - Nếu đạt [23.5](score) điểm thì cơ hội vào [quản trị kinh doanh](major) trường [kinh tế TP.HCM](school) như thế nào?
 
-  # Hỏi điểm chuẩn dự đoán
-  - intent: ask_predict_benchmark
-    examples: |
-      - Có thể cho em hỏi điểm chuẩn năm [2026](year) ngành [khoa học máy tính](major) của trường [đại học bách khoa](school) được không.
-      - Bạn dự đoán giúp mình điểm chuẩn ngành [công nghệ thông tin](major) ở [đại học fpt](school) năm [2026](year) là bao nhiêu?
-      - Năm [2026](year) thì ngành [cơ khí](major) tại [đại học bách khoa hà nội](school) sẽ lấy khoảng mấy điểm?
-      - Cho em xin dự đoán điểm chuẩn của trường [kinh tế quốc dân](school) ngành [quản trị kinh doanh](major) năm [2027](year).
-      - Ngành [kỹ thuật điện](major) ở [đại học bách khoa](school) có thể có điểm chuẩn bao nhiêu trong năm [2026](year)?
-      - Điểm chuẩn dự đoán cho ngành [y đa khoa](major) của [đại học y hà nội](school) năm [2026](year) là khoảng bao nhiêu?
-      - Trường [đại học fpt](school) ngành [an toàn thông tin](major) năm [2026](year) sẽ có điểm chuẩn dự kiến thế nào?
-      - Cho hỏi năm [2026](year) ngành [ngôn ngữ anh](major) tại [đại học hà nội](school) thì điểm chuẩn sẽ ra sao?
-      - Dự đoán điểm vào ngành [toán tin ứng dụng](major) ở [khoa học tự nhiên](school) năm [2026](year).
-      - Năm [2026](year) điểm chuẩn ngành [marketing](major) của trường [tmdt](school) sẽ tầm bao nhiêu?
-      - Ngành [công nghệ sinh học](major) ở [đại học quốc gia hà nội](school) năm [2026](year) dự kiến điểm chuẩn là bao nhiêu?
-      - Điểm chuẩn ngành [trí tuệ nhân tạo](major) năm [2026](year) tại [đại học fpt](school) sẽ như thế nào?
-      - Cho mình biết điểm chuẩn dự báo ngành [khoa học dữ liệu](major) trường [bách khoa hà nội](school) năm [2026](year).
-      - Bạn tính giúp điểm chuẩn năm [2026](year) của ngành [kỹ thuật phần mềm](major) ở [đại học công nghệ](school) với.
-      - Trường [kinh tế quốc dân](school) năm [2026](year) ngành [tài chính ngân hàng](major) sẽ lấy khoảng mấy điểm chuẩn?
-      - Năm [2026](year) dự đoán điểm chuẩn ngành [công nghệ ô tô](major) tại [đại học công nghiệp hà nội](school).
-      - Cho em biết điểm chuẩn ước lượng ngành [robotics](major) năm [2026](year) ở [bkhn](school).
-      - Ngành [thương mại điện tử](major) tại [trường đại học thương mại](school) năm [2026](year) có dự đoán điểm chuẩn không?
-      - Điểm chuẩn ước tính của ngành [công nghệ nano](major) ở [đại học quốc gia tp hcm](school) năm [2026](year) là bao nhiêu?
-      - Bạn có thể cho mình dự đoán điểm chuẩn ngành [truyền thông đa phương tiện](major) trường [học viện báo chí](school) năm [2026](year) không?
-
   - intent: ask_score_rank
     examples: |
       - Tôi được [25](score) điểm môn [A00](subject_combination) thì tôi nằm trong top mấy? 
@@ -204,6 +200,52 @@ nlu:
       - Tôi muốn biết top % của [24](score) điểm môn [A00](subject_combination)
       - Với [29](score) điểm môn [A07](subject_combination), tôi đang ở vị trí nào?
 
+  - intent: ask_admission_proposal
+    examples: |
+      - Cho tôi xem đề án tuyển sinh của [Đại học Bách Khoa](school)
+      - Trường [Kinh tế Quốc dân](school) có đề án tuyển sinh gì không?
+      - Mình muốn biết đề án tuyển sinh của [Đại học Ngoại thương](school)
+      - Thông tin đề án tuyển sinh [Học viện Ngân hàng](school) năm nay là gì?
+      - Cho hỏi đề án tuyển sinh của [Đại học FPT](school)
+      - Trường [Thương mại](school) có kế hoạch tuyển sinh thế nào?
+      - Đề án tuyển sinh [Đại học Quốc gia Hà Nội](school) công bố chưa?
+      - Đề án tuyển sinh của [Đại học Y Hà Nội](school) năm 2025 thế nào?
+      - Cho tôi thông tin về kế hoạch tuyển sinh của [Đại học Công nghệ](school)
+      - [Đại học Sư phạm Hà Nội](school) có đề án tuyển sinh ra sao?
+      - Tìm giúp tôi đề án tuyển sinh [Học viện An ninh](school)
+      - Năm nay trường [Đại học Luật Hà Nội](school) tuyển sinh theo đề án nào?
+      - Cho tôi biết chi tiết đề án tuyển sinh của [Đại học Giao thông Vận tải](school)
+      - Trường [Đại học Kiến trúc](school) công bố đề án tuyển sinh chưa?
+      - Đề án tuyển sinh năm nay của [Đại học Thủy lợi](school) là gì?
+      - Thông tin kế hoạch tuyển sinh [Đại học Xây dựng](school) thế nào?
+      - Trường [Đại học Kinh tế TP.HCM](school) có thay đổi gì trong đề án tuyển sinh?
+      - Tôi muốn biết về đề án tuyển sinh của [Đại học Tôn Đức Thắng](school)
+      - Đề án tuyển sinh của [Đại học Bách Khoa TP.HCM](school) có gì mới?
+      - Cho tôi xem kế hoạch tuyển sinh chi tiết của [Đại học Cần Thơ](school)
+
+  - intent: ask_major_info
+    examples: |
+      - Ngành [công nghệ thông tin](major) sau này có dễ xin việc không?
+      - Cho tôi biết triển vọng nghề nghiệp của [an ninh mạng](major)
+      - [Khoa học dữ liệu](major) đang được ứng dụng ở những lĩnh vực nào?
+      - Học [kỹ thuật phần mềm](major) thì thường làm công việc gì?
+      - Sau khi tốt nghiệp [trí tuệ nhân tạo](major) thì có thể làm ở đâu?
+      - Ngành [điện tử viễn thông](major) có mức lương khởi điểm bao nhiêu?
+      - Xu hướng phát triển của ngành [robotics](major) trong tương lai thế nào?
+      - [Kỹ thuật ô tô](major) có phù hợp với xu thế 4.0 không?
+      - Cho tôi thông tin về thị trường việc làm ngành [cơ điện tử](major)
+      - Ngành [marketing số](major) có đang hot ở Việt Nam không?
+      - [Phân tích dữ liệu](major) có triển vọng ra sao trong 10 năm tới?
+      - Lĩnh vực [blockchain](major) có dễ kiếm việc không?
+      - Tương lai của ngành [công nghệ sinh học](major) sẽ như thế nào?
+      - Ngành [tài chính ngân hàng](major) có cạnh tranh gay gắt không?
+      - Cho tôi biết về nhu cầu nhân lực ngành [logistics](major)
+      - [Thiết kế đồ họa](major) có lương cao không?
+      - Tôi muốn tìm hiểu tiềm năng phát triển ngành [thương mại điện tử](major)
+      - Ngành [luật kinh tế](major) có dễ xin việc không?
+      - Triển vọng quốc tế của ngành [ngôn ngữ Nhật](major) như thế nào?
+      - Học [quản trị kinh doanh](major) thì có nhiều cơ hội nghề nghiệp không?
+
   - intent: out_of_scope 
     examples: |
       - kể chuyển cười cho tôi đi 
@@ -218,6 +260,66 @@ nlu:
       - tôi muốn điểm cao thì ăn gì để giỏi hơn 
       - tôi muốn đi singapore chơi
       - ca sĩ yêu thích của bạn là gì? 
+
+  # dữ liệu train đang không ổn 
+  # lỗi không trả về kết quả 
+  - intent: ask_recommend_major
+    examples: |
+      - Tôi được [21](score) điểm, thích [toán, lý, hóa](liked_subject), không thích [văn, sử](disliked_subject). Tôi nên học ngành nào?
+      - Với số điểm [23.5](score) thì ngành nào hợp với tôi, tôi thích [sinh, hóa](liked_subject).
+      - Tôi học giỏi [toán, tin](liked_subject) nhưng dở [văn, địa](disliked_subject), điểm tôi khoảng [20](score).
+      - Tôi có [18](score) điểm, ngân sách học phí [10 triệu](finance_requirement). Ngành nào hợp?
+      - Tôi mạnh về [toán, lý](liked_subject), yếu [văn](disliked_subject), điểm [25](score), gợi ý giúp tôi ngành.
+      - Điểm tôi là [19](score), thích [sinh, địa](liked_subject), không thích [toán](disliked_subject).
+      - Có ngành nào cho tôi không, tôi học tốt [văn, sử, địa](liked_subject), điểm là [20](score).
+      - Tôi đạt [22](score) điểm, thích [toán, tin](liked_subject), ghét [giáo dục công dân](disliked_subject).
+      - Với khả năng học [lý, hóa](liked_subject) tốt, tôi được [24](score) điểm, nên học ngành nào?
+      - Tôi có [15 triệu](finance_requirement) một năm cho học phí, điểm [21](score), tôi thích [toán, lý](liked_subject).
+      - Gợi ý ngành nào nếu tôi yêu thích [toán, hóa](liked_subject), mà không thích [văn](disliked_subject).
+      - Điểm của tôi là [20](score), ngân sách khoảng [8 triệu](finance_requirement), tôi học khá [sinh, hóa](liked_subject).
+      - Tôi được [19](score) điểm, thích [văn, sử](liked_subject), ghét [toán](disliked_subject).
+      - Nếu tôi giỏi [toán, lý](liked_subject) nhưng không thích [sử, địa](disliked_subject), thì nên học ngành nào?
+      - Tôi muốn chọn ngành theo năng lực, hiện tại tôi [17](score) điểm, thích [ngoại ngữ](liked_subject).
+      - Ngành nào hợp với tôi khi tôi được [20](score) điểm, học tốt [toán, tin](liked_subject), không giỏi [văn](disliked_subject).
+      - Tôi học [sinh, hóa](liked_subject), điểm [22](score), mong được gợi ý ngành phù hợp.
+      - Với tài chính [12 triệu](finance_requirement) mỗi năm và điểm [18](score), tôi có thể chọn ngành nào?
+      - Tôi có [23](score) điểm, thích [toán, lý](liked_subject), ghét [giáo dục công dân](disliked_subject).
+      - Với ngân sách [25 triệu](finance_requirement), điểm [24](score), tôi muốn chọn ngành hợp với [toán, tin](liked_subject).
+
+  - intent: ask_tuition_fee
+    examples: |
+      - học phí ngành [An toàn không gian số](major) của [Đại học Bách khoa Hà Nội](school) năm [2025](nam) là bao nhiêu?
+      - cho tôi biết học phí ngành [Kỹ thuật Y sinh](major) trường [Bách khoa](school)?
+      - học phí [IT-E10](ma_nganh) bao nhiêu ạ?
+      - học phí ngành [Khoa học dữ liệu và Trí tuệ nhân tạo](major) trường [Đại học Bách khoa Hà Nội](school)?
+      - học phí ngành [Điện tử - Viễn thông](major)) ở [BKA](ma_truong)?
+      - [2025](nam) học phí ngành [Cyber Security](major)) là bao nhiêu?
+      - ngành [Logistics và Quản lý chuỗi cung ứng](major)) học phí thế nào?
+      - cho mình biết học phí của trường [Đại học Bách khoa Hà Nội](school) ngành [Kỹ thuật Thực phẩm](major))?
+
+  - intent: ask_major_comparison
+    examples: |
+      - Tôi đang phân vân giữa ngành C và ngành D, bạn tư vấn giúp tôi được không?
+      - Bạn có thể so sánh cho tôi ngành C với ngành D được không?
+      - Tôi không biết nên chọn ngành C hay ngành D, bạn gợi ý giúp?
+      - Giữa ngành C và ngành D, theo bạn ngành nào phù hợp với tôi hơn?
+      - Bạn hãy cho tôi lời khuyên về ngành C và D với tư cách là một chuyên gia.
+      - Tôi băn khoăn giữa 2 ngành C và D, nên chọn ngành nào?
+      - So sánh ngành C và D giúp tôi, tôi đang khá phân vân.
+      - Tôi thích cả ngành C và D, nhưng không biết nên chọn ngành nào.
+      - Hãy tư vấn cho tôi nên học ngành C hay ngành D.
+      - Tôi đang phân vân giữa hai ngành, ngành C và ngành D, bạn giúp tôi so sánh.
+      - Theo bạn, giữa ngành C và ngành D, ngành nào có triển vọng hơn?
+      - Tôi muốn hỏi, ngành C và ngành D có khác nhau thế nào?
+      - Giúp tôi phân tích ưu và nhược điểm của ngành C và ngành D.
+      - Tôi phân vân chọn ngành C hay D, bạn có thể cho tôi lời khuyên?
+      - Hãy nói giúp tôi sự khác nhau giữa ngành C với ngành D.
+      - Tôi đang phân vân giữa 2 lựa chọn: ngành C và ngành D, nên học cái nào?
+      - Bạn có thể cho tôi nhận xét so sánh ngành C và D không?
+      - Tôi muốn biết ngành C và ngành D, ngành nào phù hợp với mình hơn.
+      - Giữa ngành C và ngành D, bạn có thể phân tích giúp tôi?
+      - Tôi đang phân vân giữa ngành C với ngành D, bạn có thể tư vấn giúp tôi lựa chọn?
+
   # Regex cho năm
   - regex: year
     examples: |

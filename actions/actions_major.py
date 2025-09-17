@@ -5,6 +5,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rapidfuzz import process, fuzz
+from services.gemini_response import paraphrase_response
 
 # Đọc file với đường dẫn tuyệt đối
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -32,7 +33,7 @@ def get_major(school: str) -> List[str]:
     filtered_df = df[df['ten_truong'] == school]
     print(f"Debug Info - Filtered DataFrame for school '{school}':\n{filtered_df}")
     if not filtered_df.empty:
-        return filtered_df['ten_nganh'].unique().tolist()
+        return filtered_df['ten_nganh'].unique().tolist(), filtered_df['ma_nganh'].unique().tolist()
     return []
 
 def find_best_match(user_input: str, threshold: int = 70) -> str:
@@ -74,12 +75,12 @@ def find_top_matches(user_input: str, limit: int = 3, threshold: int = 50) -> Li
     return [m[0] for m in matches if m[1] >= threshold]
 
 def output_results(school: str) -> str:
-    """Tạo chuỗi phản hồi đã định dạng với danh sách các ngành của một trường."""
-    majors = get_major(school)
-    print(majors)
+    """Tạo chuỗi phản hồi đã định dạng với danh sách các ngành và mã ngành của một trường."""
+    majors, major_codes = get_major(school)
 
-    if majors:
-        major_list_str = "\n".join([f"- {m}" for m in majors])
+    if majors and major_codes:
+        # Ghép mã ngành với tên ngành
+        major_list_str = "\n".join([f"- {code}: {name}" for code, name in zip(major_codes, majors)])
         return f"Các ngành của {school} là:\n{major_list_str}"
     else:
         return f"Không tìm thấy ngành học cho trường {school}."
@@ -112,6 +113,8 @@ class ActionMajor(Action):
             return []
         else:
             response = output_results(best_match_school)
+            # user_messenge = tracker.latest_message.get("text")
+            # improve_response = paraphrase_response(user_messenge, response)
             dispatcher.utter_message(text=response)
 
         return []
