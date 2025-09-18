@@ -1,5 +1,5 @@
 import numpy as np
-from actions.utils.data_loader import benchmark_df, score_2024_df, score_2025_df 
+from actions.utils.data_loader import benchmark_df, score_2024_df, score_2025_df, predicted_benchmark_df
 
 def predict_cutoff(school: str, major: str) -> float:
     """
@@ -16,7 +16,6 @@ def predict_cutoff(school: str, major: str) -> float:
     coef = np.polyfit(X.flatten(), y, 1)
     poly1d_fn = np.poly1d(coef)
     return float(poly1d_fn(2025))
-
 
 def estimate_by_simulation(subject_combination: str, quota: int = 100) -> float:
     """

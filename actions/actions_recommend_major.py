@@ -41,6 +41,8 @@ class ActionMajorRecommender(Action):
         disliked_subject_raw = tracker.get_slot("disliked_subject")
         finance_requirement_raw = tracker.get_slot("finance_requirement")
 
+        print("i'm here")
+
         # ===== Xử lý dữ liệu =====
         # Điểm (score) -> float hoặc None
         try:

@@ -68,6 +68,14 @@ rules:
       - active_loop: null
       - action: action_admission_probability
 
+  - rule: Fallback khi đang chạy form khả năng đỗ
+    condition:
+      - active_loop: admission_chance_form
+    steps:
+      - intent: nlu_fallback
+      - action: admission_chance_form
+      - active_loop: admission_chance_form
+
   # Hỏi thông tin nếu thiếu khi người dùng hỏi đề án tuyển sinh 
   - rule: Kích hoạt form hỏi đề án tuyển sinh 
     steps:

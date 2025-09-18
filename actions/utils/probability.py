@@ -1,4 +1,4 @@
-from .data_loader import score_2025_df
+from .data_loader import score_2025_df, predicted_benchmark_df
 import pandas as pd 
 
 def compute_admission_probability(user_score: float, cutoff: float) -> float:

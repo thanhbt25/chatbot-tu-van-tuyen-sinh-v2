@@ -79,7 +79,7 @@ print("\n--- Test Case 5: Misspelled name with missing accents ---")
 print(dispatcher5.messages[0])
 
 # Test Case 6: Missing key parts of the name (ambiguous)
-slots6 = {"school": "quốc gia"}
+slots6 = {"school": "quốc gia", "major": "cong nghe thong tin", "year": "2026"}
 tracker6 = MockTracker(slots6)
 dispatcher6 = MockDispatcher()
 

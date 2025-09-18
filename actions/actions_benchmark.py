@@ -45,6 +45,8 @@ def get_benchmark(school: str, major: str, year: int):
     filtered_df = df[(df['ten_truong'] == school) & 
                      (df['ten_nganh'] == major) & 
                      (df['nam'] == year)]
+    
+    print(filtered_df)
     if not filtered_df.empty:
         return filtered_df['diem_chuan'].values[0], filtered_df['to_hop_mon'].values[0], filtered_df['ghi_chu'].values[0]
     return None, None, None 
@@ -53,6 +55,13 @@ def get_predicted_benchmark(school: str, major: str, year: int = 2026):
     """
     Lấy dữ liệu điểm chuẩn dự đoán cho năm 2026
     """
+    print('Trong hàm get_predicted_benchmark')
+    print(f"debug: school: {school}, major: {major}, year: {year}")
+    if year < 2026:
+        benchmark, _, _ = get_benchmark(school, major, year)
+        print(benchmark)
+        return benchmark
+        
     if predicted_df.empty or not school or not major:
         return None
     
@@ -72,8 +81,11 @@ def get_predicted_benchmark(school: str, major: str, year: int = 2026):
         (predicted_df['school_code'] == school_code) &
         (predicted_df['major_code'] == major_code)
     ]
+
+    print(filtered_df)
     
     if not filtered_df.empty:
+        print(filtered_df['predicted_cutoff'].values[0])
         return filtered_df['predicted_cutoff'].values[0]
     
     return None
@@ -81,15 +93,18 @@ def get_predicted_benchmark(school: str, major: str, year: int = 2026):
 
 def output_year(school: str, major: str, year: int) -> str:
     """Tạo chuỗi phản hồi cho một năm cụ thể."""
+
     if year == 2026:
         benchmark = get_predicted_benchmark(school, major, year)
         if benchmark is not None:
             return f"Năm {year}: Dự đoán điểm chuẩn khoảng {round(benchmark, 2)}.\n"
         else:
             return f"Năm {year}: Xin lỗi, hiện chưa có dữ liệu dự đoán.\n"
-
-    # Với các năm 2025 trở xuống → lấy dữ liệu thật trong cơ sở dữ liệu
-    benchmark, subject_combination, note = get_benchmark(school, major, year)
+    else:
+        # Với các năm 2025 trở xuống → lấy dữ liệu thật trong cơ sở dữ liệu
+        benchmark, subject_combination, note = get_benchmark(school, major, year)
+        print('debug: ', benchmark)
+        
     if benchmark is not None:
         if note is None or pd.isna(note):
             return f"Năm {year}: Điểm chuẩn: {benchmark} với tổ hợp môn xét tuyển {subject_combination}\n"
@@ -213,6 +228,9 @@ class ActionBenchmark(Action):
 
         best_major_match = find_best_major_match(best_school_match, major)
 
+        
+        print(best_school_match, ' and ', best_major_match)
+
         if not best_major_match:
             suggestions = find_top_majors(best_school_match, major)
             if suggestions:
@@ -237,4 +255,5 @@ class ActionBenchmark(Action):
         user_messenge = tracker.latest_message.get("text")
         improve_response = paraphrase_response(user_question=user_messenge, bot_answer=response)
         dispatcher.utter_message(text=improve_response)
+        # dispatcher.utter_message(text=response)
         return []

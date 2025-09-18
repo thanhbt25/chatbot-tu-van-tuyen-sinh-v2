@@ -8,8 +8,8 @@ MAJORS_AGGREGATED_PATH = os.path.join(BASE_DIR, '../../public/majors_aggregated.
 # =====================
 # Các tham số weight
 # =====================
-W_SCORE = 0.4
-W_SUBJECT = 0.4
+W_SCORE = 0.2
+W_SUBJECT = 0.6
 W_FINANCE = 0.2
 
 LIKE_WEIGHT = 1.0
