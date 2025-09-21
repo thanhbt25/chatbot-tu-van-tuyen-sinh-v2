@@ -46,7 +46,7 @@ def get_admission_proposal(school, user_question):
     Người dùng hỏi: {user_question}
     Trường mà người dung hỏi: {school}
     Đây là câu hỏi hỏi đề án tuyển sinh của trường. 
-    Bạn hãy lấy năm tuyển sinh mới nhất và ghi rõ năm ra, nếu người dùng muốn năm mà vẫn chưa có thông tin thì ghi là không có dữ liệu.
+    Bạn hãy lấy năm tuyển sinh mới nhất và ghi rõ năm ra (năm 2025), nếu người dùng muốn năm mà vẫn chưa có thông tin thì ghi là không có dữ liệu.
     Bạn hãy trả lời bằng tiếng Việt thật tự nhiên, thân thiện như một cố vấn tuyển sinh, giải thích ngắn gọn và cần phải chọn lọc thông tin sao cho thật chắc chắn, tìm hiểu kĩ và có nguồn cẩn thận trước khi đưa ra câu trả lời. 
     Đây là câu trả lời cuối cùng để đưa cho người dùng rồi nên bạn hãy viết cẩn thận, không được đưa thông tin sai lệch, đừng viết là cần điền cái gì vào, do đây là câu hỏi cuối rồi nên phải đầy đủ thông tin. 
     Có thể chèn đường link (bạn chèn) vào để người dùng tìm hiểu thêm. 
