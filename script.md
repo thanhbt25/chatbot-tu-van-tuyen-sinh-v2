@@ -1,6 +1,7 @@
 U: xin chào 
 U: tôi muốn xem các ngành của trường đại học bách khoa
 U: thế còn các ngành của trường đại học công nghệ - đại học quốc gia hà nội thì sao
+U: tôi được 25 điểm khối A01 thích toán và anh thì nên học ngành nào với chi phí 20000000 đồng một năm
 U: điểm chuẩn ngành khoa học máy tính đại học bách khoa hà nội là bao nhiêu năm 2025
 U: bạn có thể dự đoán điểm chuẩn ngành khoa học máy tính bách khoa hà nội năm 2026 được không
 U: tôi khá phân vân giữa ngành công nghệ thông tin và khoa học máy tính, bạn có thể tư vấn tôi nên học ngành nào được không

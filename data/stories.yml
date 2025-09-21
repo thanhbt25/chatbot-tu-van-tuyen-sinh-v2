@@ -228,7 +228,8 @@ stories:
           - score: 20.5
           - liked_subject: "toán, lý, hóa"
           - disliked_subject: "văn"
-          - finance_requirement: "25 triệu"
+          - finance_requirement: "25000000"
+          - subject_combination: "A01"
       - action: major_recommender_form
       - active_loop: null
       - action: action_major_recommender
@@ -241,13 +242,14 @@ stories:
           - score: 20.5
           - liked_subject: "toán, lý, hóa"
           - disliked_subject: "văn"
-          - finance_requirement: "25 triệu"
+          - finance_requirement: "25000000"
+          - subject_combination: "A01"
       - action: major_recommender_form
       - active_loop: null
       - action: action_major_recommender
       - intent: ask_recommend_major
         entities: 
-          - finance_requirement: "30 triệu"
+          - finance_requirement: "30000000"
       - action: major_recommender_form
       - active_loop: null
       - action: action_major_recommender
@@ -257,15 +259,16 @@ stories:
       - intent: ask_recommend_major
         entities: 
           - score: 20.5
-          - liked_subject: "toán, lý, hóa"
+          - liked_subject: "toán"
           - disliked_subject: "văn"
-          - finance_requirement: "25 triệu"
+          - finance_requirement: "25000000"
+          - subject_combination: "A01"
       - action: major_recommender_form
       - active_loop: null
       - action: action_major_recommender
       - intent: ask_recommend_major
         entities: 
-          - liked_subject: "sinh, tin"
+          - liked_subject: "sinh"
       - action: major_recommender_form
       - active_loop: null
       - action: action_major_recommender
@@ -277,7 +280,8 @@ stories:
           - score: 20.5
           - liked_subject: "toán, lý, hóa"
           - disliked_subject: "văn"
-          - finance_requirement: "25 triệu"
+          - finance_requirement: "25000000"
+          - subject_combination: "A01"
       - action: major_recommender_form
       - active_loop: null
       - action: action_major_recommender
@@ -295,7 +299,8 @@ stories:
           - score: 20.5
           - liked_subject: "toán, lý, hóa"
           - disliked_subject: "văn"
-          - finance_requirement: "25 triệu"
+          - finance_requirement: "22500000"
+          - subject_combination: "A01"
       - action: major_recommender_form
       - active_loop: null
       - action: action_major_recommender

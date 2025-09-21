@@ -15,6 +15,7 @@ intents:
   - ask_recommend_major
   - ask_tuition_fee
   - ask_major_comparison
+  - inform 
 
 entities:
   - school
@@ -135,8 +136,9 @@ forms:
   major_recommender_form:
     required_slots:
       - score
-      - disliked_subject
+      - subject_combination
       - liked_subject
+      - disliked_subject
       - finance_requirement
 
   tuition_fee_form: 
@@ -230,6 +232,12 @@ responses:
 
   utter_ask_major_or_school:
     - text: "Bạn có thể cung cấp cho mình biết trường và ngành mà bạn muốn thi vào là gì được không?"
+  
+  utter_ask_disliked_subject:
+    - text: "Bạn không thích môn nào?"
+
+  utter_ask_finance_requirement:
+    - text: "Bạn có thể chi trả bao nhiêu tiền mỗi năm cho học phí?"
 
 session_config:
   session_expiration_time: 60

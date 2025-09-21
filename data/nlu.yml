@@ -157,7 +157,7 @@ nlu:
   - intent: ask_admission_chance
     examples: |
       - [27](score) điểm [A00](subject_combination) năm [2026](year) thì có cửa vào ngành [khoa học máy tính](major) của [bách khoa hà nội](school) không?
-      - Liệu với [21.5](score) điểm năm [2025](year)thì em có khả năng đỗ vào [quản trị kinh doanh](major) trường [kinh tế quốc dân](school) không?
+      - Liệu với [21.5](score) điểm năm [2025](year) thì em có khả năng đỗ vào [quản trị kinh doanh](major) trường [kinh tế quốc dân](school) không?
       - Cho em hỏi, em được [19](score) điểm năm [2024](year) thì có thể vào ngành [tài chính ngân hàng](major) ở [học viện ngân hàng](school) không?
       - Em chỉ được [17.75](score) điểm tổ hợp [C00](subject_combination), có hy vọng vào [luật](major) của [đại học quốc gia hà nội](school) không ạ?
       - Với [25](score) điểm thì ngành [công nghệ thông tin](major) ở [fpt](school) có nhận không?
@@ -167,7 +167,7 @@ nlu:
       - Trường [bách khoa hà nội](school) lấy [150](quota) chỉ tiêu cho ngành [cơ khí](major), em được [23.25](score) thì có cửa không?
       - Nếu em được [28](score) điểm [B00](subject_combination) thì có khả năng đỗ [dược học](major) ở [đại học y dược TP.HCM](school) không?
       - Liệu [26](score) điểm có vào được ngành [khoa học dữ liệu](major) ở [đại học quốc gia TP.HCM](school) không anh?
-      - Ngành [kiến trúc](major) trường [xây dựng](school) lấy khoảng [300](quota) người, em có [19.5](score) điểm năm [2023](year)thì sao?
+      - Ngành [kiến trúc](major) trường [xây dựng](school) lấy khoảng [300](quota) người, em có [19.5](score) điểm năm [2023](year) thì sao?
       - [20](score) điểm có giúp em đỗ [công nghệ sinh học](major) của [học viện nông nghiệp](school) không?
       - Với [27.5](score) điểm [A01](subject_combination) thì ngành [khoa học máy tính](major) của [bách khoa hà nội](school) có khả năng nhận em không?
       - Em thi được [16](score) điểm, ngành [giáo dục tiểu học](major) ở [sư phạm hà nội](school) liệu có thể vào không?
@@ -268,32 +268,62 @@ nlu:
       - Tôi được [21](score) điểm, thích [toán, lý, hóa](liked_subject), không thích [văn, sử](disliked_subject). Tôi nên học ngành nào?
       - Với số điểm [23.5](score) thì ngành nào hợp với tôi, tôi thích [sinh, hóa](liked_subject).
       - Tôi học giỏi [toán, tin](liked_subject) nhưng dở [văn, địa](disliked_subject), điểm tôi khoảng [20](score).
-      - Tôi có [18](score) điểm, ngân sách học phí [10 triệu](finance_requirement). Ngành nào hợp?
+      - Tôi có [18](score) điểm, ngân sách học phí [10000000](finance_requirement). Ngành nào hợp?
       - Tôi mạnh về [toán, lý](liked_subject), yếu [văn](disliked_subject), điểm [25](score), gợi ý giúp tôi ngành.
       - Điểm tôi là [19](score), thích [sinh, địa](liked_subject), không thích [toán](disliked_subject).
       - Có ngành nào cho tôi không, tôi học tốt [văn, sử, địa](liked_subject), điểm là [20](score).
       - Tôi đạt [22](score) điểm, thích [toán, tin](liked_subject), ghét [giáo dục công dân](disliked_subject).
       - Với khả năng học [lý, hóa](liked_subject) tốt, tôi được [24](score) điểm, nên học ngành nào?
-      - Tôi có [15 triệu](finance_requirement) một năm cho học phí, điểm [21](score), tôi thích [toán, lý](liked_subject).
+      - Tôi có [15000000](finance_requirement) một năm cho học phí, điểm [21](score), tôi thích [toán, lý](liked_subject).
       - Gợi ý ngành nào nếu tôi yêu thích [toán, hóa](liked_subject), mà không thích [văn](disliked_subject).
-      - Điểm của tôi là [20](score), ngân sách khoảng [8 triệu](finance_requirement), tôi học khá [sinh, hóa](liked_subject).
+      - Điểm của tôi là [20](score), ngân sách khoảng [8000000](finance_requirement), tôi học khá [sinh, hóa](liked_subject).
       - Tôi được [19](score) điểm, thích [văn, sử](liked_subject), ghét [toán](disliked_subject).
       - Nếu tôi giỏi [toán, lý](liked_subject) nhưng không thích [sử, địa](disliked_subject), thì nên học ngành nào?
       - Tôi muốn chọn ngành theo năng lực, hiện tại tôi [17](score) điểm, thích [ngoại ngữ](liked_subject).
       - Ngành nào hợp với tôi khi tôi được [20](score) điểm, học tốt [toán, tin](liked_subject), không giỏi [văn](disliked_subject).
       - Tôi học [sinh, hóa](liked_subject), điểm [22](score), mong được gợi ý ngành phù hợp.
-      - Với tài chính [12 triệu](finance_requirement) mỗi năm và điểm [18](score), tôi có thể chọn ngành nào?
+      - Với tài chính [12000000](finance_requirement) mỗi năm và điểm [18](score), tôi có thể chọn ngành nào?
       - Tôi có [23](score) điểm, thích [toán, lý](liked_subject), ghét [giáo dục công dân](disliked_subject).
-      - Với ngân sách [25 triệu](finance_requirement), điểm [24](score), tôi muốn chọn ngành hợp với [toán, tin](liked_subject).
+      - Với ngân sách [25000000](finance_requirement), điểm [24](score), tôi muốn chọn ngành hợp với [toán, tin](liked_subject).
+      - Tôi được [22.5](score) điểm, thích [toán, lý, tin](liked_subject). Tôi nên chọn ngành nào?
+      - Với số điểm [21](score) và yêu thích [sinh, hóa](liked_subject), bạn gợi ý ngành gì?
+      - Tôi học tốt [toán, tin](liked_subject) nhưng kém [văn, sử](disliked_subject), điểm của tôi là [20.5](score).
+      - Tôi có [18](score) điểm và ngân sách học phí khoảng [12000000](finance_requirement) /năm, ngành nào hợp?
+      - Tôi mạnh về [toán, lý](liked_subject), yếu [văn](disliked_subject), điểm [25](score), nên học ngành nào?
+      - Điểm của tôi [19](score), thích [sinh, địa](liked_subject), ghét [toán](disliked_subject).
+      - Tôi học giỏi [văn, sử, địa](liked_subject), điểm [20](score), có ngành nào phù hợp không?
+      - Tôi đạt [22](score) điểm, thích [toán, tin](liked_subject), không thích [giáo dục công dân](disliked_subject).
+      - Với khả năng [lý, hóa](liked_subject) tốt, tôi được [24](score) điểm, nên học ngành nào?
+      - Tôi có [15000000](finance_requirement) một năm cho học phí, điểm [21](score), tôi thích [toán, lý](liked_subject).
+      - Gợi ý ngành nào nếu tôi yêu thích [toán, hóa](liked_subject), mà không thích [văn](disliked_subject)?
+      - Điểm của tôi là [20](score), ngân sách khoảng [8000000](finance_requirement), tôi học khá [sinh, hóa](liked_subject).
+      - Tôi được [19](score) điểm, thích [văn, sử](liked_subject), ghét [toán](disliked_subject).
+      - Nếu tôi giỏi [toán, lý](liked_subject) nhưng không thích [sử, địa](disliked_subject), thì nên học ngành nào?
+      - Tôi muốn chọn ngành theo năng lực, hiện tại tôi [17](score) điểm, thích [ngoại ngữ](liked_subject).
+      - Ngành nào hợp với tôi khi tôi được [20](score) điểm, học tốt [toán, tin](liked_subject), không giỏi [văn](disliked_subject)?
+      - Tôi học [sinh, hóa](liked_subject), điểm [22](score), mong được gợi ý ngành phù hợp.
+      - Với tài chính [12000000](finance_requirement) mỗi năm và điểm [18](score), tôi có thể chọn ngành nào?
+      - Tôi có [23](score) điểm, thích [toán, lý](liked_subject), ghét [giáo dục công dân](disliked_subject).
+      - Với ngân sách [25000000](finance_requirement), điểm [24](score), tôi muốn chọn ngành hợp với [toán, tin](liked_subject).
+      - Điểm tôi là [21](score), thích [văn, ngoại ngữ](liked_subject), không thích [toán](disliked_subject).  
+      - Tôi được [18.5](score) điểm, học tốt [sinh, hóa](liked_subject), có ngành nào vừa tầm không?  
+      - Tôi mạnh về [toán, tin](liked_subject), yếu [văn](disliked_subject), điểm [22](score), có thể học ngành gì?  
+      - Tôi có [20](score) điểm, thích [sử, địa](liked_subject), ghét [toán](disliked_subject).  
+      - Ngân sách học phí của tôi [10000000](finance_requirement) /năm, điểm [19](score), nên chọn ngành nào?  
+      - Tôi đạt [23](score) điểm, yêu thích [toán, lý, tin](liked_subject), không thích [văn, sử](disliked_subject).  
+      - Tôi giỏi [sinh, hóa](liked_subject), điểm [21](score), nhưng ngân sách chỉ [8000000](finance_requirement), gợi ý ngành hợp?  
+      - Tôi được [24](score) điểm, mạnh [toán, lý](liked_subject), không thích [giáo dục công dân](disliked_subject).  
+      - Với điểm [20](score), tôi yêu thích [văn, sử](liked_subject), ngành nào phù hợp?  
+      - Tôi có [15000000](finance_requirement) /năm, điểm [22](score), thích [toán, hóa](liked_subject), ngành nào nên học?
 
   - intent: ask_tuition_fee
     examples: |
-      - học phí ngành [An toàn không gian số](major) của [Đại học Bách khoa Hà Nội](school) năm [2025](nam) là bao nhiêu?
+      - học phí ngành [An toàn không gian số](major) của [Đại học Bách khoa Hà Nội](school) năm [2025](year) là bao nhiêu?
       - cho tôi biết học phí ngành [Kỹ thuật Y sinh](major) trường [Bách khoa](school)?
-      - học phí [IT-E10](ma_nganh) bao nhiêu ạ?
+      - học phí ngành [khoa học máy tính](major) bao nhiêu ạ?
       - học phí ngành [Khoa học dữ liệu và Trí tuệ nhân tạo](major) trường [Đại học Bách khoa Hà Nội](school)?
-      - học phí ngành [Điện tử - Viễn thông](major)) ở [BKA](ma_truong)?
-      - [2025](nam) học phí ngành [Cyber Security](major)) là bao nhiêu?
+      - học phí ngành [Điện tử - Viễn thông](major)) ở [đại học bách khoa hà nội](school)?
+      - [2025](year) học phí ngành [Cyber Security](major)) là bao nhiêu?
       - ngành [Logistics và Quản lý chuỗi cung ứng](major)) học phí thế nào?
       - cho mình biết học phí của trường [Đại học Bách khoa Hà Nội](school) ngành [Kỹ thuật Thực phẩm](major))?
 
@@ -319,6 +349,43 @@ nlu:
       - Tôi muốn biết ngành C và ngành D, ngành nào phù hợp với mình hơn.
       - Giữa ngành C và ngành D, bạn có thể phân tích giúp tôi?
       - Tôi đang phân vân giữa ngành C với ngành D, bạn có thể tư vấn giúp tôi lựa chọn?
+
+  - intent: inform
+    examples: |
+      - tôi muốn học trường Đại học Bách Khoa
+      - chọn học Đại học Kinh tế Quốc dân
+      - trường tôi quan tâm là Đại học Công nghệ
+      - tôi đang thi năm 2025
+      - năm học tôi dự định là 2024
+      - năm 2023
+      - tôi muốn học ngành công nghệ thông tin
+      - tôi thích ngành quản trị kinh doanh
+      - chọn ngành điện tử viễn thông
+      - tôi được 25 điểm khối D01
+      - điểm của tôi là 29
+      - tôi đạt 30 điểm A01
+      - tôi thi khối A01
+      - tôi thi khối D01
+      - tổ hợp môn của tôi là A00
+      - tôi thích môn toán
+      - tôi yêu môn anh
+      - tôi thích vật lý
+      - tôi không thích môn hóa
+      - tôi ghét toán
+      - tôi không thích lý
+      - tôi có thể chi trả 20000000 một năm
+      - tôi muốn học với học phí dưới 30000000
+      - tài chính của tôi khoảng 25000000/năm
+      - tôi có thể trả 15000000/năm
+      - học phí tối đa tôi có thể chi là 18000000
+      - tôi muốn học ngành kinh tế với học phí 22000000
+      - điểm chuẩn của tôi là 27 điểm A01
+      - tôi không thích môn sinh
+      - tôi thích môn hóa
+      - tôi ghét môn anh
+      - tôi thi khối B00
+      - tôi thi khối C01
+      - tôi được 28 điểm khối D01
 
   # Regex cho năm
   - regex: year
@@ -360,3 +427,11 @@ nlu:
       - 240
       - 750
       - 360
+    
+  - regex: liked_subject
+    examples: |
+      - (?<=thích\s)([a-zA-Z0-9\s,]+?)(?=\s*(?:,|và|nhưng|\.|$))
+
+  - regex: disliked_subject
+    examples: |
+      - (?<=không thích\s)([a-zA-Z0-9\s,]+?)(?=\s*(?:,|và|\.|$))

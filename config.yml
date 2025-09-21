@@ -21,8 +21,10 @@ pipeline:
   max_ngram: 4
 - name: DIETClassifier
   epochs: 100
+  constrain_similarities: True 
 - name: EntitySynonymMapper
-- name: RegexEntityExtractor
+# - name: RegexEntityExtractor
+#   overwrite: false 
   use_lookup_tables: true
   use_regexes: true
   use_word_boundaries: true

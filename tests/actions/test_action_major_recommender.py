@@ -29,14 +29,15 @@ action_major_recommender = ActionMajorRecommender()
 # Testcase 1
 slots1 = {
     "score": 29.0,
-    "like_subject": "toán, lý, hóa",
-    "disliked_subject": "ngữ văn, địa lý",
-    "finance_requirement": 20000000,
+    "liked_subject": "toán, anh",
+    "disliked_subject": "hóa",
+    "finance_requirement": 30000000,
+    "subject_combination": "A01"
 }
 tracker1 = MockTracker(
     slots1,
-    latest_message="Tôi được 29.0 điểm khối A00 nhưng mà tôi thích toán, lý, hóa "
-                   "và không thích ngữ văn, địa lý lắm, số tiền tôi có thể trả là 20 triệu."
+    latest_message="Tôi được 29.0 điểm khối A01 nhưng mà tôi thích toán, anh"
+                   "và không thích hóa lắm, số tiền tôi có thể trả là 30 triệu."
 )
 dispatcher1 = MockDispatcher()
 
